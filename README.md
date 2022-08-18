@@ -1,51 +1,90 @@
-# DFS TruCreds Hackathon -  Project Submission Template
+```
+<todo> Remove before submission
 
-## Purpose
-This repository is a [GitHub Repo Template][1] for creating a project workspace respository for use by a hackathon team. This repository serves as a templatized tutorial for creating an end-to-end demonstration for digital trust use cases associated with the interactions of stakeholders (Issuer, Holder, Verifier) in the [Verifiable Credentials Trust Triangle][2].
+Template Instructions
+ 
+Welcome to the Discover TruCreds Digital Trust Hackathon.
 
-## Motivation
-The *Innovation Accelerator Team* within Discover Financial Services developed this repository as an education tool for developers and a bootstrap mechanism for participants in Discover's TruCreds Hackathon (circa: 3Q 2022).
+This GitHub Repo represents a template for your project. It represents the central repository of all artifacts produced by your team. This repository will be referenced durning the judging activity and after the event has completed.
 
-## Usage
+Please follow the Template Instructions herein to update this README.
 
-### 1. Pre-Hackathon Configuration
-Before the hackathon begins, follow these [configuration instructions](./submission-guides/configuration-instructions.md) to prepare a new repository instance generated from this GitHub template.
+Remember to:
+  a) Remove all Template Instructions once complete
+  b) Add the mandatory GitHub Topic: `runway-t22-3`
 
-### 2. Project Development
-Once the hackathon begins, refer to the [Hackers's Guide](./HELP.md) to develop your project.
+```
 
-### 3. Project Submission
-Follow these [submission instructions](./submission-guides/submission-instructions.md) prior to finalizing the team's project submission.
+# Project Name
+```
+<todo> Remove before submission
+Template Instructions: Replace above "Project Name" with Participating Team Project Name which is different from the Team Name.
+```
 
-## Acknowledgments
-This repository was developed by Discover Financial Services and publicly contributed as an example for how [Avast](https://avast.com) (formally *Evernym*) products can be leveraged for digital trust solutions. Specifically, this repository leverages:
+## Project Details
+```
+<todo> Remove before submission
+Template Instructions: Provide your team specific details but.
 
-* [Verity SDK](https://gitlab.com/evernym/verity/verity-sdk): Evernym's decentralized protocol platform for issuing and verifying digital credentials.
-* [Mobile SDK](https://gitlab.com/evernym/mobile):Mobile SSI wallet functionality for credential holders.
+Event Track should have one of the following values: "Hack the Code" or "Digital Trust Ideation"
+```
 
-## License
-This repository is licensed under the [Apache V2.0 License](./LICENSE).
+| Event Attribute| Description |
+| --- | --- |
+| Project Team Name | Activiti Ninjas |
+| Project Name | xxxxxxxx |
+| Event Track | Hack The Code |
 
+## Use Case Abstract
+```
+<todo> Remove before submission
+Template Instructions: Provide a brief description of the use case tackled by the team.
+```
 
+## Project Artifacts
+```
+<todo> Remove before submission
+Template Instructions: Complete the table below.
 
+1. Use Case: Markdown file describing the story with support by UML diagrams. 
+2. Design Thinking Miro Board: URL to whiteboard used for team brainstorming. 
+3. Design Thinking Playback Brief: PowerPoint Presentation used to convey results of Design Thinking activities.
+4. Concept Playback Video: URL to Pitch Video recording conveying project problem statement and What/Why/Wow elements.
+5. Concept Show-n-Tell Video: URL Recording of a running solution to the proposed concept. 
+6. Code: URL to the code Readme file. 
 
+ 
+WARNING: Judges will stop listening to Pitch Video after the 2 minute mark so do not exceed the limit.
+```
 
+| Requirement | Deliverable |
+| --- | --- |
+| Use Case | [Story](./hackproject/usecase.md) |
+| Design Thinking Miro Board | [Team-Activiti-Ninjas-Design-Thinking](https://miro.com/app/board/uXjVPeacf48=/?share_link_id=400655312804) |
+| Design Thinking Playback Brief | [Playback Presentation](./presentations/playback-brief.ppt)|
+| Concept Playback Video | [Video URL]()|
+| Concept Show-n-Tell Video | [Video URL]() |
+| Code |  [Solution Readme](./hackprokect/README.md) |
 
+## Solution Decisions
+```
+<todo> Remove before submission
+Template Instructions: Optional Section. If the team has documented reasons for any of their business or technical decisions, itemize the links to the decision documents using the template in the /decisions folder.  Remove this section if nothing to list.
+```
 
+1. [ADR 01](./decisions/adr-01.md)
 
+## Team Information
+```
+<todo> Remove before submission
+Template Instructions: Provide a brief description of your team, how it came to be, etc.
+```
 
+Our team members came together because ...
 
-[1]: https://docs.github.com/en/free-pro-team@latest/github/creating-cloning-and-archiving-repositories/creating-a-template-repository
-[2]: https://trustoverip.github.io/WP0010-toip-foundation-whitepaper/trust/vcred_trust_triangle/
-
-
-[7]: https://docs.github.com/en/free-pro-team@latest/github/creating-cloning-and-archiving-repositories/creating-a-repository-from-a-template
-[8]: https://docs.github.com/en/free-pro-team@latest/github/creating-cloning-and-archiving-repositories/cloning-a-repository
-
-
-
-
-
-
-
-
+| Name | Business Unit |
+| --- | --- |
+| [Raja Durai Henry](mailto:rajaduraihenry@discover.com) | Business Technology |
+| [Elango Ramasamy](mailto:elangoramasamy@discover.com) | Business Technology |
+| [Vikas Patil](mailto:vikaspatil@discover.com) | DNA |
+| [Tarun Luthra](mailto:tarunluthra@discover.com) | DNA |
