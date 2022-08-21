@@ -32,7 +32,7 @@ Event Track should have one of the following values: "Hack the Code" or "Digital
 | Event Attribute| Description |
 | --- | --- |
 | Project Team Name | Activiti Ninjas |
-| Project Name | xxxxxxxx |
+| Project Name | SmartDID Student Loans |
 | Event Track | Hack The Code |
 
 ## Use Case Abstract
