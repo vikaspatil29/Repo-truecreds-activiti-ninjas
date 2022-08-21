@@ -64,7 +64,7 @@ WARNING: Judges will stop listening to Pitch Video after the 2 minute mark so do
 | Design Thinking Playback Brief | [Playback Presentation](./presentations/playback-brief.ppt)|
 | Concept Playback Video | [Video URL]()|
 | Concept Show-n-Tell Video | [Video URL]() |
-| Code |  [Solution Readme](./hackprokect/README.md) |
+| Code |  [Solution Readme](./hackprokect/code/README.md) |
 
 ## Solution Decisions
 ```
