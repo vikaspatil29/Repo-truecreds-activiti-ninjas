@@ -59,7 +59,7 @@ WARNING: Judges will stop listening to Pitch Video after the 2 minute mark so do
 
 | Requirement | Deliverable |
 | --- | --- |
-| Use Case | [Story](./hackproject/usecase.md) |
+| Use Case | [Story](./hackproject/usecase/usecase.md) |
 | Design Thinking Miro Board | [Team-Activiti-Ninjas-Design-Thinking](https://miro.com/app/board/uXjVPeacf48=/?share_link_id=400655312804) |
 | Design Thinking Playback Brief | [Playback Presentation](./presentations/playback-brief.ppt)|
 | Concept Playback Video | [Video URL]()|
