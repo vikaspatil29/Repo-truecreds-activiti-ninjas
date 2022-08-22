@@ -75,7 +75,15 @@ The goal is to demonstrate the end-to-end activities necessary to:
 
 ## Story
 
-### Student Loan Application
+### Digital Wallet Setup (DMV, College, Military)
+* <img src="./images/mike.png" width="40" height="40">  <img src="./images/mathew.png" width="40" height="40"> Mike Doe/Mathew Doe visits the trusted issuers website and requests for digital credentials.
+* Issuer website displays a QR Code and instructional text “Scan Request with your Digital Wallet App”.
+* <img src="./images/mike.png" width="40" height="40">  <img src="./images/mathew.png" width="40" height="40">  Mike Doe/Mathew Doe opens the ```Connect.Me``` App on her device and scans the QR code.
+* The ```Connect.me``` App prompts <img src="./images/mike.png" width="40" height="40"> <img src="./images/mathew.png" width="40" height="40"> Mike Doe/Mathew Doe with the message: "{Issuer} is offering the following secure credentials, do you accept?”
+* <img src="./images/mike.png" width="40" height="40"> <img src="./images/mathew.png" width="40" height="40">  Mike Doe/Mathew Doe initiates the process to accept the secure credential.
+* Credential is sent to <img src="./images/mike.png" width="40" height="40"> <img src="./images/mathew.png" width="40" height="40">  Mike Doe's/Mathew Doe's device and protected with the secure element of the device.
+
+### Student Loan Application <todo>
 * <img src="./images/persona/Angelica.png" width="40" height="40"> Angelica, a resident of Arizona, visits the <img src="./images/discover_logo.png" width="80" height="80"> website and requests a digital driver license. 
 * The <img src="./images/adot.png" width="60" height="60"> website displays a QR code and instructional text “Scan Request with your Digital Wallet App”.
 * <img src="./images/persona/Angelica.png" width="40" height="40"> Angelica opens the ```Connect.Me``` App on her device and scans the QR code.
@@ -83,7 +91,7 @@ The goal is to demonstrate the end-to-end activities necessary to:
 * <img src="./images/persona/Angelica.png" width="40" height="40"> Angelica initiates the process to accept the secure credential.
 * Credential is sent to <img src="./images/persona/Angelica.png" width="40" height="40"> Angelica's device and protected with the secure element of the device.
 
-### Co-Sign an existing Loan Application
+### Co-Sign an existing Loan Application <todo>
 * <img src="./images/persona/Angelica.png" width="40" height="40"> Angelica, an <img src="./images/acme-company-logo.png" width="50" height="40"> Acme Enterprise employee, signs in to the employee HR portal provided by <img src="./images/workday.png" width="50" height="40"> Workday.
 * <img src="./images/persona/Angelica.png" width="40" height="40"> Angelica sees a new feature to *Generate Secure Credential(s)*.
 * The <img src="./images/workday.png" width="50" height="40"> Workday system presents the credential options. The data in this credential schema minimally addresses the proof of employment requirements needed to use password-less authentication with <img src="./images/discover_logo.png" width="80" height="80">.
@@ -94,7 +102,7 @@ The goal is to demonstrate the end-to-end activities necessary to:
 * <img src="./images/persona/Angelica.png" width="40" height="40"> Angelica initiates the process to accept the offer of secure credentials.
 * Credentials are sent to <img src="./images/persona/Angelica.png" width="40" height="40"> Angelica's device and protected with the secure element of the device.
 
-### Download the Student Loan Credentials
+### Download the Student Loan Credentials <todo>
 * Some time passes, and <img src="./images/persona/Angelica.png" width="40" height="40"> Angelica desires to register for password-less access to her account with <img src="./images/discover_logo.png" width="80" height="80">.
 * <img src="./images/persona/Angelica.png" width="40" height="40"> Angelica visits <img src="./images/discover_logo.png" width="80" height="80"> website and initiates the “Registration” flow.
 * The <img src="./images/discover_logo.png" width="80" height="80"> website displays the page requesting the employee’s information, and a new Icon "Register Account using Digital Wallet”.
