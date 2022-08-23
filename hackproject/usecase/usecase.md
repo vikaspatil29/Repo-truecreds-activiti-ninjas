@@ -121,8 +121,10 @@ The goal is to demonstrate the end-to-end activities necessary to:
 
 ### Ecosystem Setup
 
-![setup](./designs/images/uml/1-ecosystem-setup-seq.png)
-
+![ecosystem-setup](../../designs/images/uml/1-ecosystem-setup-seq.png)
+![student-loan-app](../../designs/images/uml/2-student-loan-app-seq.png)
+![Cosigner-app](../../designs/images/uml/3-Cosigner-app-seq.png)
+![issue-student-loan](../../designs/images/uml/4-issue-student-loan-seq.png)
 
 ## Benefits
 1. Consumer: Simple, consistent authentication across all DFS accounts and modalities.
