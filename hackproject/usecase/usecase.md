@@ -50,6 +50,8 @@ The goal is to demonstrate the end-to-end activities necessary to:
 * Discover is able to verify the credentials and process the loan application.
 * Discover is able to verify the credentials of the co-signer
 * Discover is able to apply promotions/offer/compliance based on Identity
+* Discover is able to issue the student loan as digital credentials
+* Main Applicant/Co-Signer is able to download the loan details as digital credentials into their wallet.
 
 ## Vernacular
 
@@ -66,30 +68,41 @@ The goal is to demonstrate the end-to-end activities necessary to:
 
 ## Persona
 
-| Actor | Role | Goals | Details |
-| --- | --- | --- | --- |
-| <img src="./images/mike.png" width="40" height="40"> Mike Doe | Main Applicant | Applies for Discover Student loan using the credentials in the digital wallet | Carries a mobile device with a digital wallet containing verifiable credentials from a variety of issuers. |
-| <img src="./images/mathew.png" width="40" height="40"> Mathew Doe | Co-Signer | Co-Signs for a Discover Student loan using the credentials in the digital wallet. | Carries a mobile device with a digital wallet containing verifiable credentials from a variety of issuers. |
-| <img src="./images/discover_logo.png" width="40" height="40"> | Verifier |Ensure that all users of a password-less authentication and authorization offering meet business policy proof of employment and government ID.| Exploring use cases that would either eliminate the need to outsource employment verification or reduce time/cost for doing employment income verifications internally.|
-| <img src="./images/discover_logo.png" width="40" height="40"> | Issuer | Upon verification of business policy requirements for password-less authentication, issue a digital bank credential. | Arm qualified consumers with a digital credential for use with password-less authentication and authorization offering. |
+| Actor                                                                        | Role | Goals                                                                                                                          | Details                                                                                                                                                             |
+|------------------------------------------------------------------------------| --- |--------------------------------------------------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| <img src="./images/john.png" width="40" height="40"> <br> John Doe           | Main Applicant | Applies for Discover Student loan using the credentials in the digital wallet                                                  | Carries a mobile device with a digital wallet containing verifiable credentials from a variety of issuers.                                                          |
+| <img src="./images/mike.png" width="40" height="40"> <br> Mike Doe           | Co-Signer | Co-Signs for a Discover Student loan using the credentials in the digital wallet.                                              | Carries a mobile device with a digital wallet containing verifiable credentials from a variety of issuers.                                                          |
+| <img src="./images/discover_logo.png" width="40" height="40"> <br>Discover   | Verifier | Ensure that all applicants of a SmartDID student loan meet business policy proof of identity, income, university and benefits. | Exploring use cases that would either eliminate the need to outsource student loan verification or reduce time/cost for doing student loan verification internally. |
+| <img src="./images/discover_logo.png" width="40" height="40">  <br>Discover  | Issuer | Upon verification of business policy requirements for student loan, issue a student loan credential.                           | Arm qualified consumers with a digital credential for use with SmartDID Student Loan offering.                                                                      |
+| <img src="./images/dmv.png" width="40" height="40"> <br>DMV                  | Issuer | Upon verification of business policy requirements for driving license, issue a driving license credential.                     | Arm qualified consumers with a digital credential for use with SmartDID Student Loan offering.                                             |
+| <img src="./images/ssn.png" width="40" height="40"> <br>SSN Office           | Issuer | Upon verification of business policy requirements for SSN, issue a SSN credential                                              | Arm qualified consumers with a digital credential for use with SmartDID Student Loan offering.                                             |
+| <img src="./images/passport.jpg" width="40" height="40"> <br>Passport Office | Issuer | Upon verification of business policy requirements for passport, issue a passport credential.                                   | Arm qualified consumers with a digital credential for use with SmartDID Student Loan offering.                                             |
+| <img src="./images/irs.jpg" width="40" height="40"> <br>IRS                  | Issuer | Upon verification of business policy requirements for tax filings, issue a IRS ID credential.                                  | Arm qualified consumers with a digital credential for use with SmartDID Student Loan offering.                                             |
+| <img src="./images/dod.png" width="40" height="40"> <br>Dept of Defense      | Issuer | Upon verification of business policy requirements for defense duty, issue a defense id credential.                             | Arm qualified consumers with a digital credential for use with SmartDID Student Loan offering.                                             |
+| <img src="./images/univ.png" width="40" height="40"> <br>DTA University      | Issuer | Upon verification of business policy requirements for college enrollment, issue a digital college enrollment credential.       | Arm qualified consumers with a digital credential for use with SmartDID Student Loan offering.                                             |
 
 ## Story
 
-### Digital Wallet Setup (DMV, College, Military)
-* <img src="./images/mike.png" width="40" height="40">  <img src="./images/mathew.png" width="40" height="40"> Mike Doe/Mathew Doe visits the trusted issuers website and requests for digital credentials.
+### Ecosystem Setup
+* All issuers register their DID in a public registry.
+* All issuers define the schema, credential definition in the public registry.
+* <img src="./images/john.png" width="40" height="40">  <img src="./images/mike.png" width="40" height="40"> Mike Doe/John Doe visits the trusted issuers website and requests for digital credentials.
 * Issuer website displays a QR Code and instructional text “Scan Request with your Digital Wallet App”.
-* <img src="./images/mike.png" width="40" height="40">  <img src="./images/mathew.png" width="40" height="40">  Mike Doe/Mathew Doe opens the ```Connect.Me``` App on her device and scans the QR code.
-* The ```Connect.me``` App prompts <img src="./images/mike.png" width="40" height="40"> <img src="./images/mathew.png" width="40" height="40"> Mike Doe/Mathew Doe with the message: "{Issuer} is offering the following secure credentials, do you accept?”
-* <img src="./images/mike.png" width="40" height="40"> <img src="./images/mathew.png" width="40" height="40">  Mike Doe/Mathew Doe initiates the process to accept the secure credential.
-* Credential is sent to <img src="./images/mike.png" width="40" height="40"> <img src="./images/mathew.png" width="40" height="40">  Mike Doe's/Mathew Doe's device and protected with the secure element of the device.
+* <img src="./images/john.png" width="40" height="40">  <img src="./images/mike.png" width="40" height="40">  Mike Doe/John Doe opens the ```Connect.Me``` App on her device and scans the QR code.
+* The ```Connect.me``` App prompts <img src="./images/john.png" width="40" height="40"> <img src="./images/mike.png" width="40" height="40"> Mike Doe/John Doe with the message: "{Issuer} is offering the following secure credentials, do you accept?”
+* <img src="./images/john.png" width="40" height="40"> <img src="./images/mike.png" width="40" height="40">  Mike Doe/John Doe initiates the process to accept the secure credential.
+* Credential is sent to <img src="./images/john.png" width="40" height="40"> <img src="./images/mike.png" width="40" height="40">  Mike Doe's/John Doe's device and protected with the secure element of the device.
 
-### Student Loan Application <todo>
-* <img src="./images/persona/Angelica.png" width="40" height="40"> Angelica, a resident of Arizona, visits the <img src="./images/discover_logo.png" width="80" height="80"> website and requests a digital driver license. 
-* The <img src="./images/adot.png" width="60" height="60"> website displays a QR code and instructional text “Scan Request with your Digital Wallet App”.
-* <img src="./images/persona/Angelica.png" width="40" height="40"> Angelica opens the ```Connect.Me``` App on her device and scans the QR code.
-* The ```Connect.me``` App prompts <img src="./images/persona/Angelica.png" width="40" height="40"> Angelica with the message: "<img src="./images/adot.png" width="60" height="60"> is offering the following secure credentials, do you accept?”
-* <img src="./images/persona/Angelica.png" width="40" height="40"> Angelica initiates the process to accept the secure credential.
-* Credential is sent to <img src="./images/persona/Angelica.png" width="40" height="40"> Angelica's device and protected with the secure element of the device.
+### Student Loan Application
+* <img src="./images/john.png" width="40" height="40"> John Doe, visits Discover Student <img src="./images/discover_logo.png" width="40" height="40"> website and initiates a student loan application process. 
+* The <img src="./images/discover_logo.png" width="40" height="40"> website displays a QR code and instructional text “Scan to submit your loan application with your Digital Wallet App”.
+* <img src="./images/john.png" width="40" height="40"> John Doe opens the ```Connect.Me``` App on her device and scans the QR code.
+* The ```Connect.me``` App prompts <img src="./images/john.png" width="40" height="40"> John Doe with the message: "<img src="./images/discover_logo.png" width="40" height="40"> is requesting the following secure credentials, do you accept?”
+* <img src="./images/john.png" width="40" height="40"> John Doe initiates the process to accept the proof request.
+* Proof response is sent to <img src="./images/discover_logo.png" width="40" height="40"> Discover.
+* Discover <img src="./images/discover_logo.png" width="40" height="40"> verifies the proof and applies military member benefits to the loan application
+* Discover <img src="./images/discover_logo.png" width="40" height="40"> generates loan ID and CoSigner Key
+* Discover <img src="./images/discover_logo.png" width="40" height="40"> updates John Doe with loan status and requests for co-signer.
 
 ### Co-Sign an existing Loan Application <todo>
 * <img src="./images/persona/Angelica.png" width="40" height="40"> Angelica, an <img src="./images/acme-company-logo.png" width="50" height="40"> Acme Enterprise employee, signs in to the employee HR portal provided by <img src="./images/workday.png" width="50" height="40"> Workday.
@@ -118,9 +131,6 @@ The goal is to demonstrate the end-to-end activities necessary to:
 * Credential is sent to <img src="./images/persona/Angelica.png" width="40" height="40"> Angelica's device and protected with the secure element of the device.
 
 ## Demo Workflow
-
-### Ecosystem Setup
-
 ![ecosystem-setup](../../designs/images/uml/1-ecosystem-setup-seq.png)
 ![student-loan-app](../../designs/images/uml/2-student-loan-app-seq.png)
 ![Cosigner-app](../../designs/images/uml/3-Cosigner-app-seq.png)
