@@ -30,6 +30,7 @@ SWALLET->DFS: Scan QR Code
 DFS->REGISTRY: Verify credentials 
 REGISTRY->DFS: Verify credentials 
 DFS->DFSAPI: Process Loan Application
+note over DFSAPI: Military member benefits\nare applied here.
 DFSAPI->DFS: LoanAppID and CoSignerKey
 DFS->STUDENT: Loan Status and CoSignerKey
 end
