@@ -322,9 +322,10 @@ app.get('/getVerifyInviteURL', async (req, res) => {
 	await sendVerityRESTMessage('123456789abcdefghi1234', 'relationship', '1.0', 'out-of-band-invitation', relationshipInvitationMessage, relThreadId)
 	const inviteUrl = await relationshipInvitation
 	console.log(`Invite URL is:\n${ANSII_GREEN}${inviteUrl}${ANSII_RESET}`)
-	await QR.toFile('public/qrcode.png', inviteUrl)
+	await QR.toFile(__dirname + '/qrcode.png', inviteUrl)
 
-	res.json({inviteUrl: inviteUrl});
+	//res.json({inviteUrl: inviteUrl});
+	res.sendFile(__dirname + '/qrcode.png');
 });
 
 app.get('/getVerifyRelationshipDid', async (req, res) => {
