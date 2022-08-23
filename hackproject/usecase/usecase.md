@@ -119,6 +119,9 @@ The goal is to demonstrate the end-to-end activities necessary to:
 
 ## Demo Workflow
 
+### Ecosystem Setup
+
+![setup](./designs/images/uml/1-ecosystem-setup-seq.png)
 
 
 ## Benefits
