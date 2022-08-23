@@ -5,6 +5,7 @@ const express = require('express')
 const QR = require('qrcode')
 const uuid4 = require('uuid4')
 const urljoin = require('url-join')
+const cors = require('cors');
 require('dotenv').config()
 
 const ANSII_GREEN = '\u001b[32m'
@@ -337,8 +338,11 @@ app.get('/getVerifyRelationshipDid', async (req, res) => {
 	res.json({relationshipDid: relationshipDid});
 });
 
+app.use(cors());
 // Serve HTML
 app.use(express.static('public'));
+
+
 
 // Start server
 app.listen(PORT, () => {
