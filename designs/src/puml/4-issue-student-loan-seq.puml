@@ -1,1 +1,41 @@
 
+@startuml
+
+header Discover Student Loans
+footer Discover - TruCreds Hackathon - Team Activiti Ninjas
+
+title Issue Student Loan Digitial Certification
+
+autonumber 1
+skinparam noteBorderColor black
+
+actor "John Doe \n (Student)" as STUDENT #lightblue
+actor "Mike Doe \n (Cosigner)" as COSIGNER #99FF99
+participant "John Doe\nDigitial Wallet" as SWALLET #lightblue
+participant "Mike Doe\n Digital Wallet" as CWALLET #99FF99
+participant "Discover" as DFS #orange
+participant "Discover Bank API" as DFSAPI #orange
+participant "DMV" as DMV
+participant "IRS" as IRS
+participant "SSN\nOffice" as SSN
+participant "Passport\nOffice" as PASSPORT
+participant "Dept of\nDefense" as MILITARY
+participant "University" as UNIVERSITY #yellow
+participant "Public\nRegistry" as REGISTRY #pink
+
+group Register Schemas and Claim Definitions
+DFS->REGISTRY: Register Student Loan Schema
+DFS->REGISTRY: Register Credential Definition for Digital Student Loan using Digital Student Loan Schema
+end
+
+group Digital Student Loan Issuance   
+STUDENT->SWALLET: Request Digital Student Loan Certification
+SWALLET<->REGISTRY: Digital Student Loan Certification
+SWALLET->STUDENT: Issue Digital Student Loan Certification
+
+COSIGNER->CWALLET: Request Digital Student Loan Certification
+CWALLET<->REGISTRY: Digital Student LoanCertification
+CWALLET->COSIGNER: Issue Digital Student Loan Certification
+end
+
+@enduml
