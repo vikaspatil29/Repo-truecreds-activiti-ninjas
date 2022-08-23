@@ -1,0 +1,58 @@
+@startuml
+
+header Discover Student Loans
+footer Discover - TruCreds Hackathon - Team Activiti Ninjas
+
+title Ecosystem Setup
+
+autonumber 1
+skinparam noteBorderColor black
+
+actor "John Doe \n (Student)" as STUDENT #lightblue
+actor "Mike Doe \n (Cosigner)" as COSIGNER #99FF99
+participant "John Doe\nDigitial Wallet" as SWALLET #lightblue
+participant "Mike Doe\n Digital Wallet" as CWALLET #99FF99
+participant "Discover" as DFS #orange
+participant "DMV" as DMV
+participant "IRS" as IRS
+participant "SSN\nOffice" as SSN
+participant "Passport\nOffice" as PASSPORT
+participant "Dept of\nDefense" as MILITARY
+participant "University" as UNIVERSITY #yellow
+participant "Public\nRegistry" as REGISTRY #pink
+
+group Onboard Stakeholders 
+DFS->REGISTRY: Register Public DID
+DMV->REGISTRY: Register Public DID
+IRS->REGISTRY: Register Public DID
+SSN->REGISTRY: Register Public DID
+PASSPORT->REGISTRY: Register Public DID
+MILITARY->REGISTRY: Register Public DID
+UNIVERSITY->REGISTRY: Register Public DID
+end
+
+group Register Schemas and Claim Definitions
+DMV->REGISTRY: Register Digital DL Schema
+DMV->REGISTRY: Register Credential Definition for Digital DL Certification using Digital DL Schema
+IRS->REGISTRY: Register W2 Schema
+IRS->REGISTRY: Register Credential Definition for Digital W2 Certification using Digital W2 Schema
+SSN->REGISTRY: Register Digital SSN Schema
+SSN->REGISTRY: Register Credential Definition for Digital SSN Certification using Digital SSN Schema
+PASSPORT->REGISTRY: Register Digital Passport Schema
+PASSPORT->REGISTRY: Register Credential Definition for Digital Passport Certification using Digital Passport Schema
+MILITARY->REGISTRY: Register Digital Military ID Schema
+MILITARY->REGISTRY: Register Credential Definition for Digital Military Duty Certification using Digital Military Schema
+UNIVERSITY->REGISTRY: Register Digital University Schema
+UNIVERSITY->REGISTRY: Register Credential Definition for Digital Course Certification using Digital University Schema
+end
+
+group Digital Wallet Credentials Issuance   
+STUDENT->SWALLET: Request verifiable digital credentials
+SWALLET->REGISTRY: Request credentials
+REGISTRY->SWALLET: Digital Credentials
+COSIGNER->CWALLET: Request verifiable digital credentials
+CWALLET->REGISTRY: Request credentials
+REGISTRY->CWALLET: Digital Credentials
+end
+
+@enduml
