@@ -1,0 +1,36 @@
+@startuml
+
+header Discover Student Loans
+footer Discover - TruCreds Hackathon - Team Activiti Ninjas
+
+title Student Loan Application
+
+autonumber 1
+skinparam noteBorderColor black
+
+actor "John Doe \n (Student)" as STUDENT #lightblue
+actor "Mike Doe \n (Cosigner)" as COSIGNER #99FF99
+participant "John Doe\nDigitial Wallet" as SWALLET #lightblue
+participant "Mike Doe\n Digital Wallet" as CWALLET #99FF99
+participant "Discover" as DFS #orange
+participant "DMV" as DMV
+participant "IRS" as IRS
+participant "SSN\nOffice" as SSN
+participant "Passport\nOffice" as PASSPORT
+participant "Dept of\nDefense" as MILITARY
+participant "University" as UNIVERSITY #yellow
+participant "Public\nRegistry" as REGISTRY #pink
+
+group Apply for Student Loan
+STUDENT->DFS: Apply for DSL
+DFS->DFS: Generate QR Code
+STUDENT->SWALLET: Scan QR Code
+SWALLET->DFS: Scan QR Code
+SWALLET->REGISTRY: Verify credentials 
+REGISTRY->SWALLET: Verify credentials 
+SWALLET->DFS: Verify credentials 
+DFS->DFS: Generate Loan Appliccation ID and CoSigner Key
+DFS->STUDENT: Generate Loan Appliccation ID and CoSigner Key
+end
+
+@enduml
