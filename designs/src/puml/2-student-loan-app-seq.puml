@@ -13,6 +13,7 @@ actor "Mike Doe \n (Cosigner)" as COSIGNER #99FF99
 participant "John Doe\nDigitial Wallet" as SWALLET #lightblue
 participant "Mike Doe\n Digital Wallet" as CWALLET #99FF99
 participant "Discover" as DFS #orange
+participant "Discover Bank API" as DFSAPI #orange
 participant "DMV" as DMV
 participant "IRS" as IRS
 participant "SSN\nOffice" as SSN
@@ -22,15 +23,15 @@ participant "University" as UNIVERSITY #yellow
 participant "Public\nRegistry" as REGISTRY #pink
 
 group Apply for Student Loan
-STUDENT->DFS: Apply for DSL
+STUDENT->DFS: Apply for Student Loan
 DFS->DFS: Generate QR Code
 STUDENT->SWALLET: Scan QR Code
 SWALLET->DFS: Scan QR Code
-SWALLET->REGISTRY: Verify credentials 
-REGISTRY->SWALLET: Verify credentials 
-SWALLET->DFS: Verify credentials 
-DFS->DFS: Generate Loan Appliccation ID and CoSigner Key
-DFS->STUDENT: Generate Loan Appliccation ID and CoSigner Key
+DFS->REGISTRY: Verify credentials 
+REGISTRY->DFS: Verify credentials 
+DFS->DFSAPI: Process Loan Application
+DFSAPI->DFS: LoanAppID and CoSignerKey
+DFS->STUDENT: Loan Status and CoSignerKey
 end
 
 @enduml
