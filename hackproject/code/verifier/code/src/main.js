@@ -147,90 +147,8 @@ async function run() {
 	await sendVerityRESTMessage('123456789abcdefghi1234', 'update-configs', '0.6', 'update', updateConfigMessage, updateConfigsThreadId)
 	await updateConfigs
 
-	//-------------------------------------------------------------------
-	// STEP 5 - Relationship creation 
-	//-------------------------------------------------------------------
-	// create relationship key
-	const relationshipCreateMessage = {}
-	const relThreadId = uuid4()
-	const relationshipCreate =
-		new Promise(function (resolve, reject) {
-			relCreateMap.set(relThreadId, resolve)
-		})
-	await sendVerityRESTMessage('123456789abcdefghi1234', 'relationship', '1.0', 'create', relationshipCreateMessage, relThreadId)
-	relationshipDid = await relationshipCreate
-
-	// create invitation for the relationship
-	const relationshipInvitationMessage = {
-		'~for_relationship': relationshipDid,
-		goalCode: 'request-proof',
-		goal: 'To request a proof'
-	}
-	const relationshipInvitation =
-		new Promise(function (resolve, reject) {
-			relInvitationMap.set(relThreadId, resolve)
-		})
-	await sendVerityRESTMessage('123456789abcdefghi1234', 'relationship', '1.0', 'out-of-band-invitation', relationshipInvitationMessage, relThreadId)
-	const inviteUrl = await relationshipInvitation
-	console.log(`Invite URL is:\n${ANSII_GREEN}${inviteUrl}${ANSII_RESET}`)
-	await QR.toFile('public/qrcode.png', inviteUrl)
-
-	//-------------------------------------------------------------------
-	// STEP 6 - Wait for and process all connection and credential requests
-	//-------------------------------------------------------------------
-	while (true) {
-
-		//-------------------------------------------------------------------
-		// STEP 6.1 - Wait for the user to scan the QR code and accept the connection
-		//-------------------------------------------------------------------
-		const connection =
-			new Promise(function (resolve, reject) {
-				connectionAccepted.set(relationshipDid, resolve)
-			})
-		console.log("relationshipDid =", relationshipDid)
-		await connection
-
-		//-------------------------------------------------------------------
-		// STEP 6.2 - Proof request
-		//-------------------------------------------------------------------
-		const proofMessage = {
-			'~for_relationship': relationshipDid,
-			name: 'Proof of Name',
-			proof_attrs: [
-				{
-					name: 'first_name',
-					restrictions: [
-					// It is recommended for increased security to include a restriction, such as the cred_def_id
-					// {
-					//	"cred_def_id": "Aa4sRAaxcSB4CqNJgnEUVk:3:CL:334784:latest"
-					// }
-					],
-					self_attest_allowed: false
-				},
-				{
-					name: 'last_name',
-					restrictions: [],
-					self_attest_allowed: false
-				}
-			]
-		}
-		const proofThreadId = uuid4()
-		const requestProof =
-			new Promise(function (resolve, reject) {
-				proofRequestMap.set(proofThreadId, resolve)
-			})
-		await sendVerityRESTMessage('BzCbsNYhMrjHiqZDTUASHg', 'present-proof', '1.0', 'request', proofMessage, proofThreadId)
-		const verificationResult = await requestProof
-
-		if (verificationResult === 'ProofValidated') {
-			console.log('Proof is validated!')
-			await wsSend({ type: "log", data: "Proof is validated" })
-		} else {
-			console.log('Proof is NOT validated')
-			await wsSend({ type: "log", data: "Proof is NOT validated" })
-		}
-	}
 }
+
 
 // Initialize express app
 const app = express()
@@ -322,7 +240,7 @@ app.post('/webhook', async (req, res) => {
 
 		case 'did:sov:BzCbsNYhMrjHiqZDTUASHg;spec/present-proof/1.0/presentation-result':
 			await wsSend({ type: "log", data: "<pre>"+JSON.stringify(message["requested_presentation"],null,4)+"</pre>" })
-			await proofRequestMap.get(threadId)(message.verification_result)
+			await proofRequestMap.get(threadId)(message)
 			break
 
 		default:
@@ -335,6 +253,89 @@ app.post('/webhook', async (req, res) => {
 			}
 	}
 })
+
+app.get('/about', (req, res) => {
+	res.send("About route");
+});
+
+app.post('/verifyCredentials', async (req, res) => {
+	//res.send("About verify");
+	    console.log(req.body);
+
+		//-------------------------------------------------------------------
+		// STEP 6.2 - Proof request
+		//-------------------------------------------------------------------
+		const proofMessage = {
+			'~for_relationship': req.body.relationshipDid,
+			name: 'Proof of Name',
+			proof_attrs: [
+				{
+					name: 'first_name',
+					restrictions: [
+					// It is recommended for increased security to include a restriction, such as the cred_def_id
+					// {
+					//	"cred_def_id": "Aa4sRAaxcSB4CqNJgnEUVk:3:CL:334784:latest"
+					// }
+					],
+					self_attest_allowed: false
+				 }//1,
+				// {
+				// 	name: 'last_name',
+				// 	restrictions: [],
+				// 	self_attest_allowed: false
+				// }
+			]
+		}
+		const proofThreadId = uuid4()
+		const requestProof =
+			new Promise(function (resolve, reject) {
+				proofRequestMap.set(proofThreadId, resolve)
+			})
+		await sendVerityRESTMessage('BzCbsNYhMrjHiqZDTUASHg', 'present-proof', '1.0', 'request', proofMessage, proofThreadId)
+		const verificationResult = await requestProof
+
+	    res.send(verificationResult);
+
+});
+
+app.get('/getVerifyInviteURL', async (req, res) => {
+	const relationshipCreateMessage = {}
+	const relThreadId = uuid4()
+	const relationshipCreate =
+		new Promise(function (resolve, reject) {
+			relCreateMap.set(relThreadId, resolve)
+		})
+	await sendVerityRESTMessage('123456789abcdefghi1234', 'relationship', '1.0', 'create', relationshipCreateMessage, relThreadId)
+	relationshipDid = await relationshipCreate
+
+	// create invitation for the relationship
+	const relationshipInvitationMessage = {
+		'~for_relationship': relationshipDid,
+		goalCode: 'request-proof',
+		goal: 'To request a proof'
+	}
+	const relationshipInvitation =
+		new Promise(function (resolve, reject) {
+			relInvitationMap.set(relThreadId, resolve)
+		})
+	await sendVerityRESTMessage('123456789abcdefghi1234', 'relationship', '1.0', 'out-of-band-invitation', relationshipInvitationMessage, relThreadId)
+	const inviteUrl = await relationshipInvitation
+	console.log(`Invite URL is:\n${ANSII_GREEN}${inviteUrl}${ANSII_RESET}`)
+	await QR.toFile('public/qrcode.png', inviteUrl)
+
+	res.json({inviteUrl: inviteUrl});
+});
+
+app.get('/getVerifyRelationshipDid', async (req, res) => {
+	const connection =
+		new Promise(function (resolve, reject) {
+			connectionAccepted.set(relationshipDid, resolve)
+		})
+	console.log("relationshipDid =", relationshipDid)
+	await connection
+
+	res.json({relationshipDid: relationshipDid});
+});
 
 // Serve HTML
 app.use(express.static('public'));
