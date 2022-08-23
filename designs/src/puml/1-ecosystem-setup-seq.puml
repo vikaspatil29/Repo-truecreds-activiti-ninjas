@@ -43,16 +43,63 @@ PASSPORT->REGISTRY: Register Credential Definition for Digital Passport Certific
 MILITARY->REGISTRY: Register Digital Military ID Schema
 MILITARY->REGISTRY: Register Credential Definition for Digital Military Duty Certification using Digital Military Schema
 UNIVERSITY->REGISTRY: Register Digital University Schema
-UNIVERSITY->REGISTRY: Register Credential Definition for Digital Course Certification using Digital University Schema
+UNIVERSITY->REGISTRY: Register Credential Definition for Digital Student ID Certification using Digital University Schema
 end
 
-group Digital Wallet Credentials Issuance   
-STUDENT->SWALLET: Request verifiable digital credentials
-SWALLET->REGISTRY: Request credentials
-REGISTRY->SWALLET: Digital Credentials
-COSIGNER->CWALLET: Request verifiable digital credentials
-CWALLET->REGISTRY: Request credentials
-REGISTRY->CWALLET: Digital Credentials
+group Digital DL Issuance   
+STUDENT->SWALLET: Request Digital DL Certification
+SWALLET<->REGISTRY: Digital DL Certification
+SWALLET->STUDENT: Issue Digital DL Certification
+
+COSIGNER->CWALLET: Request Digital DL Certification
+CWALLET<->REGISTRY: Digital DL Certification
+CWALLET->COSIGNER: Issue Digital DL Certification
+end
+
+group Digital W2 Issuance   
+STUDENT->SWALLET: Request Digital W2 Certification
+SWALLET<->REGISTRY: Digital W2 Certification
+SWALLET->STUDENT: Issue Digital W2 Certification
+
+COSIGNER->CWALLET: Request Digital W2 Certification
+CWALLET<->REGISTRY: Digital W2 Certification
+CWALLET->COSIGNER: Issue Digital W2 Certification
+end
+
+group Digital SSN Issuance   
+STUDENT->SWALLET: Request Digital SSN Certification
+SWALLET<->REGISTRY: Digital SSN Certification
+SWALLET->STUDENT: Issue Digital SSN Certification
+
+COSIGNER->CWALLET: Request Digital SSN Certification
+CWALLET<->REGISTRY: Digital SSN Certification
+CWALLET->COSIGNER: Issue Digital SSN Certification
+end
+
+group Digital Passport Issuance   
+STUDENT->SWALLET: Request Digital Passport Certification
+SWALLET<->REGISTRY: Digital Passport Certification
+SWALLET->STUDENT: Issue Digital Passport Certification
+
+COSIGNER->CWALLET: Request Digital Passport Certification
+CWALLET<->REGISTRY: Digital Passport Certification
+CWALLET->COSIGNER: Issue Digital Passport Certification
+end
+
+group Digital Military ID Issuance   
+STUDENT->SWALLET: Request Digital Military ID Certification
+SWALLET<->REGISTRY: Digital Military ID Certification
+SWALLET->STUDENT: Issue Digital Military ID Certification
+
+COSIGNER->CWALLET: Request Digital Military ID Certification
+CWALLET<->REGISTRY: Digital Military ID Certification
+CWALLET->COSIGNER: Issue Digital Military ID Certification
+end
+
+group Digital Student ID Issuance   
+STUDENT->SWALLET: Request Digital Student ID Certification
+SWALLET<->REGISTRY: Digital Student ID Certification
+SWALLET->STUDENT: Issue Digital Student ID Certification
 end
 
 @enduml
