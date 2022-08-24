@@ -268,7 +268,7 @@ app.post('/verifyCredentials', async (req, res) => {
 		//-------------------------------------------------------------------
 		const proofMessage = {
 			'~for_relationship': req.body.relationshipDid,
-			name: 'Proof of Name',
+			name: 'Proof for Student Loan',
 			proof_attrs: [
 				{
 					name: 'first_name',
