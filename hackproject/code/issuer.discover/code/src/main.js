@@ -10,7 +10,7 @@ require('dotenv').config()
 
 const ANSII_GREEN = '\u001b[32m'
 const ANSII_RESET = '\x1b[0m'
-const PORT = 3001
+const PORT = 3002
 
 //-------------------------------------------------------------------
 // STEP 1 - Set configuration values for Verity application server
@@ -18,7 +18,7 @@ const PORT = 3001
 const verityUrl = process.env["VERITY_URL"] || "https://vas.pps.evernym.com"
 const domainDid = process.env["DOMAIN_DID"]
 const xApiKey = process.env["X_API_KEY"]
-const credDefId = '5wai3qN6BktLqp3jyCd1mZ:3:CL:335351:latest' //process.env["CREDENTIAL_DEFINITION_ID"]
+const credDefId = process.env["CREDENTIAL_DEFINITION_ID"]
 
 // Verify that .env variables are set
 let error = false;
@@ -147,7 +147,7 @@ async function run() {
 		configs: [
 			{
 				name: 'logoUrl',
-				value: 'https://logotyp.us/files/discover.svg'
+				value: 'https://www.discover.com/content/dam/dfs/credit-cards/global/images/discover-logo.png'
 			},
 			{
 				name: 'name',
@@ -193,9 +193,11 @@ app.get('/getVerifyInviteURL', async (req, res) => {
 	await sendVerityRESTMessage('123456789abcdefghi1234', 'relationship', '1.0', 'out-of-band-invitation', relationshipInvitationMessage, relThreadId)
 	const inviteUrl = await relationshipInvitation
 	console.log(`Invite URL is:\n${ANSII_GREEN}${inviteUrl}${ANSII_RESET}`)
-	await QR.toFile('public/qrcode.png', inviteUrl)
+	await QR.toFile(__dirname + '/qrcode.png', inviteUrl)
 
-	res.json({inviteUrl: inviteUrl});
+	res.setHeader('Access-Control-Allow-Origin', '*');
+	res.sendFile(__dirname + '/qrcode.png');
+
 });
 
 app.get('/getVerifyRelationshipDid', async (req, res) => {
@@ -206,6 +208,7 @@ app.get('/getVerifyRelationshipDid', async (req, res) => {
 	console.log("relationshipDid =", relationshipDid)
 	await connection
 
+	res.setHeader('Access-Control-Allow-Origin', '*');
 	res.json({relationshipDid: relationshipDid});
 });
 
@@ -232,6 +235,7 @@ app.post('/issueCreds', async (req, res) => {
 		await sendVerityRESTMessage('BzCbsNYhMrjHiqZDTUASHg', 'issue-credential', '1.0', 'offer', credentialMessage, issueCredThreadId)
 		await credentialOffer
 
+	res.setHeader('Access-Control-Allow-Origin', '*');
 	res.json({credentials_issued: true});
 
 });
