@@ -29,17 +29,38 @@ const LoanDetails: FC<LoanDetailsProps> = (props) =>
     setImg(imageObjectURL);
 
     const resp = await axios.get(baseApiUrl+'getVerifyRelationshipDid');
-    const verifiedData = await axios.post(baseApiUrl+'verifyCredentials', {"relationshipDid": resp.data.relationshipDid})
+    const verifiedData = await axios.post(baseApiUrl+'issueCreds',
+                    {"relationshipDid": resp.data.relationshipDid,
+                    "credentialData":{"first_name":"test",
+                                        "last_name":"test"}})
+//                                         "address":"address",
+//                                         "zipcode":"60000",
+//                                          "phone":"30012312222",
+//                                          "email":"test@test.com",
+//                                           "college_name":"test college",
+//                                           "college_state":"IL",
+//                                           "college_course_name":"PHD",
+//                                           "college_couse_type":"PHD",
+//                                           "ssn":"1231233211",
+//                                           "dod_id":"12121",
+//                                           "affiliation":"test",
+//                                           "benefits_number":"2323test",
+//                                           "rank":"high",
+//                                           "date_of_birth":"12-12-2000",
+//                                           "active_duty_indicator":"N",
+//                                            "discover_account_no":"12121212121212",
+//                                            "discover_account_type":"loan"}})
     console.log(verifiedData);
 
-    if(verifiedData.data.verification_result == 'ProofValidated')
-    {
-//       props.setLoanData(verifiedData.data.requested_presentation.revealed_attrs);
-    }
-    else
-    {
-      console.log('Verification Failed!')
-    }
+
+//     if(verifiedData.data.verification_result == 'ProofValidated')
+//     {
+// //       props.setLoanData(verifiedData.data.requested_presentation.revealed_attrs);
+//     }
+//     else
+//     {
+//       console.log('Verification Failed!')
+//     }
 
   };
 
