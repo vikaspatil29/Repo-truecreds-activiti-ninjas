@@ -67,7 +67,7 @@ const ConfirmDetails: FC<ConfirmDetailsProps> = (props) => {
              <TextField
                id="collegeName"
                label="College Name"
-               value={props.verifiedData.college_name.value}
+               value={props.verifiedData.College_name.value}
                defaultValue="College Name"
                InputProps={{
                  readOnly: true,
