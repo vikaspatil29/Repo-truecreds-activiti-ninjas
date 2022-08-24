@@ -57,6 +57,7 @@ const ConfirmDetails: FC<ConfirmDetailsProps> = (props) => {
         <TextField
                id="collegeState"
                label="College State"
+               value={props.verifiedData.college_state.value}
                defaultValue="State"
                InputProps={{
                  readOnly: true,
@@ -66,6 +67,7 @@ const ConfirmDetails: FC<ConfirmDetailsProps> = (props) => {
              <TextField
                id="collegeName"
                label="College Name"
+               value={props.verifiedData.college_name.value}
                defaultValue="College Name"
                InputProps={{
                  readOnly: true,
@@ -168,6 +170,7 @@ const ConfirmDetails: FC<ConfirmDetailsProps> = (props) => {
              <TextField
                id="email"
                label="Email"
+               value = {props.verifiedData.email.value}
                defaultValue="email"
                InputProps={{
                  readOnly: true,
@@ -177,6 +180,7 @@ const ConfirmDetails: FC<ConfirmDetailsProps> = (props) => {
              <TextField
                id="phone"
                label="Phone"
+               value = {props.verifiedData.phone.value}
                defaultValue="000-000-0000"
                InputProps={{
                  readOnly: true,

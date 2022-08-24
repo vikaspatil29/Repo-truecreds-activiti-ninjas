@@ -292,10 +292,30 @@ app.post('/verifyCredentials', async (req, res) => {
 				},
 				{
 					name: 'social_security_number',
-					restrictions: [{"cred_def_id": "UcBZX1BJu53esRURU7xpM4:3:CL:335388:latest"}], //SSA
+					restrictions: [{"cred_def_id": "UcBZX1BJu53esRURU7xpM4:3:CL:335475:latest"}], //SSA
 					self_attest_allowed: false
 				},
-
+				{
+					name: 'college_state',
+					restrictions: [{"cred_def_id": "UcBZX1BJu53esRURU7xpM4:3:CL:335479:latest"}], //University
+					self_attest_allowed: false
+				},
+				{
+					name: 'College_name',
+					restrictions: [{"cred_def_id": "UcBZX1BJu53esRURU7xpM4:3:CL:335479:latest"}], //University
+					self_attest_allowed: false
+				},
+				{
+					name: 'email',
+					restrictions: [{"cred_def_id": "UcBZX1BJu53esRURU7xpM4:3:CL:335479:latest"}], //University
+					self_attest_allowed: false
+				},
+				{
+					name: 'phone',
+					restrictions: [{"cred_def_id": "UcBZX1BJu53esRURU7xpM4:3:CL:335479:latest"}], //University
+					self_attest_allowed: false
+				},
+                
 
 			]
 		}
@@ -304,6 +324,8 @@ app.post('/verifyCredentials', async (req, res) => {
 			new Promise(function (resolve, reject) {
 				proofRequestMap.set(proofThreadId, resolve)
 			})
+        
+        
 		await sendVerityRESTMessage('BzCbsNYhMrjHiqZDTUASHg', 'present-proof', '1.0', 'request', proofMessage, proofThreadId)
 		const verificationResult = await requestProof
 		res.setHeader('Access-Control-Allow-Origin', '*');

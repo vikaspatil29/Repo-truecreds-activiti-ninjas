@@ -1,4 +1,4 @@
-import React, { FC } from 'react';
+import React, { FC, useState } from 'react';
 import styles from './Cosigner.module.css';
 import QrVerification from '../QrVerification/QrVerification';
 import LoanAccess from '../LoanAccess/LoanAccess';
@@ -15,6 +15,7 @@ interface CosignerProps {}
 const Cosigner: FC<CosignerProps> = () => {
   
   const steps = ['LoanAccess', 'Verify', 'Complete'];
+  const [isMilitary, setMilitaryFlag] = useState<boolean>(false);
   let verifiedData:any;
   const [activeStep, setActiveStep] = React.useState(0);
 
@@ -39,7 +40,7 @@ const Cosigner: FC<CosignerProps> = () => {
       case 0:
         return <LoanAccess handleNext={handleNext} />;
       case 1:
-        return <QrVerification setVerifiedData={setVerifiedData} />;
+        return <QrVerification setVerifiedData={setVerifiedData} isApplicant={false} isMilitary={isMilitary} />;
       case 2:
         return <Complete handleNext={handleNext} />;
       default:

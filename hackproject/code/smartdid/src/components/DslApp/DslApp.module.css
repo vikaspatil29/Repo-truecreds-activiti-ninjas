@@ -1,2 +1,8 @@
 .DslApp {}
 .Content {margin-top:80px}
+
+.AppHeader {
+ margin-top: 15px;
+ margin-bottom: 30px;
+ text-align: center;   
+}

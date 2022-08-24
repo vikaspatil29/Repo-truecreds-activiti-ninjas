@@ -14,12 +14,18 @@ interface ApplicantProps {}
 
 const Applicant: FC<ApplicantProps> = () => {
   const [verifiedData, setVerData] = useState<any>();
+  const [isMilitary, setMilitaryFlag] = useState<boolean>(false);
   const steps = ['Apply', 'Verify', 'Submit'];
 
   const [activeStep, setActiveStep] = React.useState(0);
 
   const handleNext = () => {
     setActiveStep((prevActiveStep) => prevActiveStep + 1);
+  };
+
+  const firstStepComplete = (isMil) => {
+    setMilitaryFlag(isMil);
+    setActiveStep(1);
   };
 
   const handleBack = () => {
@@ -38,9 +44,9 @@ const Applicant: FC<ApplicantProps> = () => {
   const renderStepContent = (step: Number) => {
     switch (step) {
       case 0:
-        return <ApplicantLanding handleNext={handleNext} />;
+        return <ApplicantLanding firstStepComplete={firstStepComplete} />;
       case 1:
-        return <QrVerification setVerifiedData={setVerifiedData} />;
+        return <QrVerification setVerifiedData={setVerifiedData}  isApplicant={true} isMilitary={isMilitary} />;
       case 2:
         return <ConfirmDetails handleNext={handleNext} verifiedData={verifiedData} />;
       default:
