@@ -132,11 +132,11 @@ async function run() {
 		configs: [
 			{
 				name: 'logoUrl',
-				value: 'https://freeiconshop.com/wp-content/uploads/edd/bank-flat.png'
+				value: 'https://www.discover.com/content/dam/dfs/credit-cards/global/images/discover-logo.png'
 			},
 			{
 				name: 'name',
-				value: 'Verifier'
+				value: 'Discover Loan'
 			}
 		]
 	}
