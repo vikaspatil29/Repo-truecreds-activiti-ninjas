@@ -99,6 +99,7 @@ const ConfirmDetails: FC<ConfirmDetailsProps> = (props) => {
            <TextField
                id="fname"
                label="First name"
+               value={props.verifiedData.first_name.value}
                defaultValue="John"
                InputProps={{
                  readOnly: true,
@@ -117,6 +118,7 @@ const ConfirmDetails: FC<ConfirmDetailsProps> = (props) => {
              <TextField
                id="lname"
                label="Last name"
+               value={props.verifiedData.last_name.value}
                defaultValue="Doe"
                InputProps={{
                  readOnly: true,
@@ -126,6 +128,7 @@ const ConfirmDetails: FC<ConfirmDetailsProps> = (props) => {
              <TextField
                id="dob"
                label="Date of Birth"
+               value={props.verifiedData.date_of_birth.value}
                defaultValue="01/01/1999"
                InputProps={{
                  readOnly: true,
@@ -135,6 +138,7 @@ const ConfirmDetails: FC<ConfirmDetailsProps> = (props) => {
              <TextField
                id="ssn"
                label="SSN"
+               value={props.verifiedData.social_security_number.value}
                defaultValue="000-000-0000"
                InputProps={{
                  readOnly: true,
@@ -154,6 +158,7 @@ const ConfirmDetails: FC<ConfirmDetailsProps> = (props) => {
              <TextField
                id="address"
                label="Address"
+               value = {props.verifiedData.address.value}
                defaultValue="1234, new streat, city, state, 60000"
                InputProps={{
                  readOnly: true,
