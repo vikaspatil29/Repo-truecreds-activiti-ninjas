@@ -105,30 +105,18 @@ The goal is to demonstrate the end-to-end activities necessary to:
 * Discover <img src="./images/discover_logo.png" width="40" height="40"> updates John Doe with loan status and requests for co-signer.
 
 ### Co-Sign an existing Loan Application <todo>
-* <img src="./images/persona/Angelica.png" width="40" height="40"> Angelica, an <img src="./images/acme-company-logo.png" width="50" height="40"> Acme Enterprise employee, signs in to the employee HR portal provided by <img src="./images/workday.png" width="50" height="40"> Workday.
-* <img src="./images/persona/Angelica.png" width="40" height="40"> Angelica sees a new feature to *Generate Secure Credential(s)*.
-* The <img src="./images/workday.png" width="50" height="40"> Workday system presents the credential options. The data in this credential schema minimally addresses the proof of employment requirements needed to use password-less authentication with <img src="./images/discover_logo.png" width="80" height="80">.
-* <img src="./images/persona/Angelica.png" width="40" height="40"> Angelica selects one or more credentials and clicks OK.
-* The <img src="./images/workday.png" width="50" height="40"> Workday software generates a QR code and instructional text “Scan Credentials with your Digital Wallet App”.
-* <img src="./images/persona/Angelica.png" width="40" height="40"> Angelica opens her <img src="./images/avast.png" width="60" height="60"> Avast digital wallet, ```Connect.me```, and scans the QR code.
-* The ```Connect.me``` App prompts <img src="./images/persona/Angelica.png" width="40" height="40"> Angelica with the messsage: “Workday is offering the following secure credentials, do you accept?”
-* <img src="./images/persona/Angelica.png" width="40" height="40"> Angelica initiates the process to accept the offer of secure credentials.
-* Credentials are sent to <img src="./images/persona/Angelica.png" width="40" height="40"> Angelica's device and protected with the secure element of the device.
+* <img src="./images/mike.png" width="40" height="40"> Mike signs in to the Discover <img src="./images/discover_logo.png" width="40" height="40"> Student Loan website with provided co-signer key .
+* The <img src="./images/discover_logo.png" width="40" height="40"> website displays a QR code and instructional text “Scan to Co-sign your loan application with your Digital Wallet App”.
+* The ```Connect.me``` App prompts <img src="./images/mike.png" width="40" height="40"> Mike Doe with the message: "<img src="./images/discover_logo.png" width="40" height="40"> is requesting the following secure credentials, do you accept?”
 
-### Download the Student Loan Credentials <todo>
-* Some time passes, and <img src="./images/persona/Angelica.png" width="40" height="40"> Angelica desires to register for password-less access to her account with <img src="./images/discover_logo.png" width="80" height="80">.
-* <img src="./images/persona/Angelica.png" width="40" height="40"> Angelica visits <img src="./images/discover_logo.png" width="80" height="80"> website and initiates the “Registration” flow.
-* The <img src="./images/discover_logo.png" width="80" height="80"> website displays the page requesting the employee’s information, and a new Icon "Register Account using Digital Wallet”.
-* <img src="./images/persona/Angelica.png" width="40" height="40"> Angelica clicks the Wallet icon.
-* The <img src="./images/discover_logo.png" width="80" height="80"> website displays a QR code and instructional text “Scan Request with your Digital Wallet App”.
-* <img src="./images/persona/Angelica.png" width="40" height="40"> Angelica opens the ```Connect.Me``` App on her device and scans the QR code.
-* The ```Connect.me``` App prompts <img src="./images/persona/Angelica.png" width="40" height="40"> Angelica with the message: "<img src="./images/discover_logo.png" width="80" height="80"> is requesting proof of employment and government ID. Do you accept?”
-* <img src="./images/persona/Angelica.png" width="40" height="40"> Angelica accepts the credential request.
-* Using the ```Connect.me``` App, <img src="./images/persona/Angelica.png" width="40" height="40"> Angelica selects the credentials in her wallet that will be used to respond to the request.
-* Credentials are securely transferred to and verified by <img src="./images/discover_logo.png" width="80" height="80">.
-* The ```Connect.me``` App prompts <img src="./images/persona/Angelica.png" width="40" height="40"> Angelica with the message: <img src="./images/discover_logo.png" width="80" height="80"> is offering the following secure credentials, do you accept?”
-* <img src="./images/persona/Angelica.png" width="40" height="40"> Angelica initiates the process to accept the offer of the secure credential.
-* Credential is sent to <img src="./images/persona/Angelica.png" width="40" height="40"> Angelica's device and protected with the secure element of the device.
+* <img src="./images/mike.png" width="40" height="40"> Mike Doe initiates the process to accept the proof request.
+* Proof response is sent to <img src="./images/discover_logo.png" width="40" height="40"> Discover.
+* Discover <img src="./images/discover_logo.png" width="40" height="40"> verifies the proof and applies military member benefits to the loan application
+* Discover <img src="./images/discover_logo.png" width="40" height="40"> approves the loan and notify <img src="./images/john.png" width="40" height="40">
+
+
+
+
 
 ## Demo Workflow
 ![ecosystem-setup](../../designs/images/uml/1-ecosystem-setup-seq.png)
