@@ -272,19 +272,31 @@ app.post('/verifyCredentials', async (req, res) => {
 			proof_attrs: [
 				{
 					name: 'first_name',
-					restrictions: [
-					// It is recommended for increased security to include a restriction, such as the cred_def_id
-					// {
-					//	"cred_def_id": "Aa4sRAaxcSB4CqNJgnEUVk:3:CL:334784:latest"
-					// }
-					],
+					restrictions: [{"cred_def_id": "UcBZX1BJu53esRURU7xpM4:3:CL:335390:latest"}], //DMV
 					self_attest_allowed: false
-				 }//1,
-				// {
-				// 	name: 'last_name',
-				// 	restrictions: [],
-				// 	self_attest_allowed: false
-				// }
+				 },
+				{
+					name: 'last_name',
+					restrictions: [{"cred_def_id": "UcBZX1BJu53esRURU7xpM4:3:CL:335390:latest"}], //DMV
+					self_attest_allowed: false
+				},
+				{
+					name: 'date_of_birth',
+					restrictions: [{"cred_def_id": "UcBZX1BJu53esRURU7xpM4:3:CL:335390:latest"}], //DMV
+					self_attest_allowed: false
+				},
+				{
+					name: 'address',
+					restrictions: [{"cred_def_id": "UcBZX1BJu53esRURU7xpM4:3:CL:335390:latest"}], //DMV
+					self_attest_allowed: false
+				},
+				{
+					name: 'social_security_number',
+					restrictions: [{"cred_def_id": "UcBZX1BJu53esRURU7xpM4:3:CL:335388:latest"}], //SSA
+					self_attest_allowed: false
+				},
+
+
 			]
 		}
 		const proofThreadId = uuid4()
