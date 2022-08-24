@@ -57,7 +57,6 @@ const QrVerification: FC<QrVerificationProps> = (props) =>
 
   return(
     <div className={styles.QrVerification}>
-      QrVerification Component
       <article className={styles.QrImage}>
 
       {/* <img src={`/images/${imageName}`} /> */}
