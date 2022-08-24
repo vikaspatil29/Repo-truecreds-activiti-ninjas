@@ -136,7 +136,7 @@ async function run() {
 			},
 			{
 				name: 'name',
-				value: 'Discover Loan'
+				value: 'Discover'
 			}
 		]
 	}
