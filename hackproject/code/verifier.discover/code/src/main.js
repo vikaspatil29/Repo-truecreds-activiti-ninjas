@@ -294,7 +294,7 @@ app.post('/verifyCredentials', async (req, res) => {
 			})
 		await sendVerityRESTMessage('BzCbsNYhMrjHiqZDTUASHg', 'present-proof', '1.0', 'request', proofMessage, proofThreadId)
 		const verificationResult = await requestProof
-
+		res.setHeader('Access-Control-Allow-Origin', '*');
 	    res.send(verificationResult);
 
 });
@@ -323,7 +323,7 @@ app.get('/getVerifyInviteURL', async (req, res) => {
 	const inviteUrl = await relationshipInvitation
 	console.log(`Invite URL is:\n${ANSII_GREEN}${inviteUrl}${ANSII_RESET}`)
 	await QR.toFile(__dirname + '/qrcode.png', inviteUrl)
-
+	res.setHeader('Access-Control-Allow-Origin', '*');
 	//res.json({inviteUrl: inviteUrl});
 	res.sendFile(__dirname + '/qrcode.png');
 });
@@ -335,7 +335,7 @@ app.get('/getVerifyRelationshipDid', async (req, res) => {
 		})
 	console.log("relationshipDid =", relationshipDid)
 	await connection
-
+	res.setHeader('Access-Control-Allow-Origin', '*');
 	res.json({relationshipDid: relationshipDid});
 });
 

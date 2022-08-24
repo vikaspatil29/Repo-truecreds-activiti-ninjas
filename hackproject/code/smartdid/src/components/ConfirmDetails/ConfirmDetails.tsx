@@ -7,7 +7,8 @@ import { styled } from '@mui/material/styles';
 import SendIcon from '@mui/icons-material/Send';
 
 interface ConfirmDetailsProps {
-  handleNext: any
+  handleNext: any,
+  verifiedData: any
 }
 
 const ConfirmDetails: FC<ConfirmDetailsProps> = (props) => {
@@ -15,6 +16,8 @@ const ConfirmDetails: FC<ConfirmDetailsProps> = (props) => {
   const nextStep = () => {
     props.handleNext(1);
   }
+
+  console.log(props.verifiedData);
 
   return(
        <div className={styles.ConfirmDetails}>

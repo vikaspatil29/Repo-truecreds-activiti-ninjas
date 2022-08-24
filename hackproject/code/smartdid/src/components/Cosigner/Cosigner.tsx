@@ -15,7 +15,7 @@ interface CosignerProps {}
 const Cosigner: FC<CosignerProps> = () => {
   
   const steps = ['LoanAccess', 'Verify', 'Complete'];
-
+  let verifiedData:any;
   const [activeStep, setActiveStep] = React.useState(0);
 
   const handleNext = () => {
@@ -30,12 +30,16 @@ const Cosigner: FC<CosignerProps> = () => {
     setActiveStep(0);
   };
 
+  const setVerifiedData = (dataFromQrCode) => {
+    verifiedData = dataFromQrCode;
+  }
+
   const renderStepContent = (step: Number) => {
     switch (step) {
       case 0:
         return <LoanAccess handleNext={handleNext} />;
       case 1:
-        return <QrVerification handleNext={handleNext} />;
+        return <QrVerification setVerifiedData={setVerifiedData} />;
       case 2:
         return <Complete handleNext={handleNext} />;
       default:

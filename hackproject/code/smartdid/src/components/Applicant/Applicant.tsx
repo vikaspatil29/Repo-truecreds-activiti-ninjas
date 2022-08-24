@@ -1,4 +1,4 @@
-import React, { FC } from 'react';
+import React, { FC, useState } from 'react';
 import styles from './Applicant.module.css';
 import Box from '@mui/material/Box';
 import Stepper from '@mui/material/Stepper';
@@ -13,7 +13,7 @@ import ConfirmDetails from '../ConfirmDetails/ConfirmDetails';
 interface ApplicantProps {}
 
 const Applicant: FC<ApplicantProps> = () => {
-
+  const [verifiedData, setVerData] = useState<any>();
   const steps = ['Apply', 'Verify', 'Submit'];
 
   const [activeStep, setActiveStep] = React.useState(0);
@@ -30,14 +30,19 @@ const Applicant: FC<ApplicantProps> = () => {
     setActiveStep(0);
   };
 
+  const setVerifiedData = (dataFromQrCode) => {
+    setVerData(dataFromQrCode);
+    setActiveStep(2);
+  }
+
   const renderStepContent = (step: Number) => {
     switch (step) {
       case 0:
         return <ApplicantLanding handleNext={handleNext} />;
       case 1:
-        return <QrVerification handleNext={handleNext} />;
+        return <QrVerification setVerifiedData={setVerifiedData} />;
       case 2:
-        return <ConfirmDetails handleNext={handleNext} />;
+        return <ConfirmDetails handleNext={handleNext} verifiedData={verifiedData} />;
       default:
         return <div>Not Found</div>;
     }

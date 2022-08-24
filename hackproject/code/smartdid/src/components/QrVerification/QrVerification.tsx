@@ -4,18 +4,19 @@ import Button from '@mui/material/Button';
 import Box from '@mui/material/Box/Box';
 import axios from 'axios';
 
+const sharedVerifiedData = React.createContext('');
 
 interface QrVerificationProps {
-  handleNext: any
+  setVerifiedData: any
 }
 
 const QrVerification: FC<QrVerificationProps> = (props) => 
 {
 
   const baseApiUrl = 'http://localhost:3001/';
-  const nextStep = () => {
-    props.handleNext(1);
-  }
+  // const nextStep = () => {
+  //   props.handleNext(1);
+  // }
 
   const [img, setImg] = useState<string>();
 
@@ -24,9 +25,19 @@ const QrVerification: FC<QrVerificationProps> = (props) =>
     const imageBlob = await res.blob();
     const imageObjectURL = URL.createObjectURL(imageBlob);
     setImg(imageObjectURL);
-    axios.get(baseApiUrl+'getVerifyRelationshipDid').then(data => {
-      console.log(data);
-    })
+    const resp = await axios.get(baseApiUrl+'getVerifyRelationshipDid');
+    const verifiedData = await axios.post(baseApiUrl+'verifyCredentials', {"relationshipDid": resp.data.relationshipDid})
+    console.log(verifiedData);
+    if(verifiedData.data.verification_result == 'ProofValidated')
+    {
+      props.setVerifiedData(verifiedData.data.requested_presentation.revealed_attrs);
+      //nextStep();
+    }
+    else
+    {
+      console.log('Verification Failed!')
+    }
+    
   };
 
   useEffect(() => {
@@ -52,7 +63,6 @@ const QrVerification: FC<QrVerificationProps> = (props) =>
         src={`${img}`}
       />
       </article>
-      <Button variant="contained"  onClick={nextStep}>Verify</Button>
     </div>
   );
 }
