@@ -1,23 +1,38 @@
+import Box from '@mui/material/Box/Box';
 import Button from '@mui/material/Button';
+import Checkbox from "@mui/material/Checkbox";
+import FormControlLabel from "@mui/material/FormControlLabel";
 import React, { FC } from 'react';
 import styles from './ApplicantLanding.module.css';
 
 interface ApplicantLandingProps {
-  handleNext: any
+  firstStepComplete: any
 }
 
 const ApplicantLanding: FC<ApplicantLandingProps> = (props) => {
   
+  const [checked, setChecked] = React.useState(false);
+
+  const handleChange = (event) => {
+    setChecked(event.target.checked);
+  };
   
   const nextStep = () => {
-    props.handleNext(1);
+    props.firstStepComplete(checked);
   }
 
   return (
-  <div className={styles.ApplicantLanding}>
-    ApplicantLanding Component
-    <Button variant="contained" onClick={nextStep}>Apply Loan</Button>
-  </div>
+    <Box className={styles.boxContainer}>
+      <article>
+      <FormControlLabel
+      control={<Checkbox checked={checked} onChange={handleChange} />}
+      label="Military / Other Benefits eligibility" />
+      </article>
+      <article>
+      <Button variant="contained" onClick={nextStep}>START HERE</Button>
+      </article>
+      
+    </Box>
 )};
 
 export default ApplicantLanding;

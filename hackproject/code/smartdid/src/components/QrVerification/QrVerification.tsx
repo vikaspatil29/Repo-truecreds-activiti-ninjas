@@ -7,7 +7,9 @@ import axios from 'axios';
 const sharedVerifiedData = React.createContext('');
 
 interface QrVerificationProps {
-  setVerifiedData: any
+  setVerifiedData: any,
+  isMilitary: boolean,
+  isApplicant: boolean
 }
 
 const QrVerification: FC<QrVerificationProps> = (props) => 
@@ -26,7 +28,16 @@ const QrVerification: FC<QrVerificationProps> = (props) =>
     const imageObjectURL = URL.createObjectURL(imageBlob);
     setImg(imageObjectURL);
     const resp = await axios.get(baseApiUrl+'getVerifyRelationshipDid');
-    const verifiedData = await axios.post(baseApiUrl+'verifyCredentials', {"relationshipDid": resp.data.relationshipDid})
+    let postBody = {};
+    if(props.isApplicant)
+    {
+      postBody = {"relationshipDid": resp.data.relationshipDid, military_eligibility: props.isMilitary, active_duty: false};
+    }
+    else
+    {
+      postBody = {"relationshipDid": resp.data.relationshipDid, military_eligibility: false, active_duty: props.isMilitary};
+    }
+    const verifiedData = await axios.post(baseApiUrl+'verifyCredentials', postBody);
     console.log(verifiedData);
     if(verifiedData.data.verification_result == 'ProofValidated')
     {

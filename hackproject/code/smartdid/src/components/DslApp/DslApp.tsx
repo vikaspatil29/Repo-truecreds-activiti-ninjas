@@ -50,6 +50,11 @@ const DslApp: FC<DslAppProps> = () => {
     </Box>
     <Container fixed>
     <Box sx={{ flexGrow: 1 }} className={styles.Content}>
+    <article className={styles.AppHeader}>
+      <Typography variant="h4" noWrap>
+          Discover SmartDID Student Loan
+        </Typography>
+      </article>
       <Routes>
         {
           routes.map((route, index) => (

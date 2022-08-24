@@ -1,1 +1,10 @@
 .ApplicantLanding {}
+
+.boxContainer
+{
+    text-align: center;
+}
+
+.boxContainer article {
+    margin-top: 30px;
+}
