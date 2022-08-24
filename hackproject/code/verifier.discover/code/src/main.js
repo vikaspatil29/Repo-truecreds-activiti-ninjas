@@ -317,14 +317,153 @@ app.post('/verifyCredentials', async (req, res) => {
 				}
 			]
 		}
+
+	const proofMessageMilitary = {
+		'~for_relationship': req.body.relationshipDid,
+		name: 'Proof for Student Loan',
+		proof_attrs: [
+			{
+				name: 'first_name',
+				restrictions: [{"cred_def_id": "UcBZX1BJu53esRURU7xpM4:3:CL:335390:latest"}], //DMV
+				self_attest_allowed: false
+			},
+			{
+				name: 'last_name',
+				restrictions: [{"cred_def_id": "UcBZX1BJu53esRURU7xpM4:3:CL:335390:latest"}], //DMV
+				self_attest_allowed: false
+			},
+			{
+				name: 'date_of_birth',
+				restrictions: [{"cred_def_id": "UcBZX1BJu53esRURU7xpM4:3:CL:335390:latest"}], //DMV
+				self_attest_allowed: false
+			},
+			{
+				name: 'address',
+				restrictions: [{"cred_def_id": "UcBZX1BJu53esRURU7xpM4:3:CL:335390:latest"}], //DMV
+				self_attest_allowed: false
+			},
+			{
+				name: 'social_security_number',
+				restrictions: [{"cred_def_id": "UcBZX1BJu53esRURU7xpM4:3:CL:335475:latest"}], //SSA
+				self_attest_allowed: false
+			},
+			{
+				name: 'college_state',
+				restrictions: [{"cred_def_id": "UcBZX1BJu53esRURU7xpM4:3:CL:335479:latest"}], //University
+				self_attest_allowed: false
+			},
+			{
+				name: 'College_name',
+				restrictions: [{"cred_def_id": "UcBZX1BJu53esRURU7xpM4:3:CL:335479:latest"}], //University
+				self_attest_allowed: false
+			},
+			{
+				name: 'email',
+				restrictions: [{"cred_def_id": "UcBZX1BJu53esRURU7xpM4:3:CL:335479:latest"}], //University
+				self_attest_allowed: false
+			},
+			{
+				name: 'phone',
+				restrictions: [{"cred_def_id": "UcBZX1BJu53esRURU7xpM4:3:CL:335479:latest"}], //University
+				self_attest_allowed: false
+			},
+			{
+				name: 'dod_id',
+				restrictions: [{"cred_def_id": "UcBZX1BJu53esRURU7xpM4:3:CL:335392:latest"}], //DoD
+				self_attest_allowed: false
+			},
+			{
+				name: 'benefits_number',
+				restrictions: [{"cred_def_id": "UcBZX1BJu53esRURU7xpM4:3:CL:335392:latest"}], //DoD
+				self_attest_allowed: false
+			}
+		]
+	}
+
+	const proofMessageMilitaryActiveDuty = {
+		'~for_relationship': req.body.relationshipDid,
+		name: 'Proof for Student Loan',
+		proof_attrs: [
+			{
+				name: 'first_name',
+				restrictions: [{"cred_def_id": "UcBZX1BJu53esRURU7xpM4:3:CL:335390:latest"}], //DMV
+				self_attest_allowed: false
+			},
+			{
+				name: 'last_name',
+				restrictions: [{"cred_def_id": "UcBZX1BJu53esRURU7xpM4:3:CL:335390:latest"}], //DMV
+				self_attest_allowed: false
+			},
+			{
+				name: 'date_of_birth',
+				restrictions: [{"cred_def_id": "UcBZX1BJu53esRURU7xpM4:3:CL:335390:latest"}], //DMV
+				self_attest_allowed: false
+			},
+			{
+				name: 'address',
+				restrictions: [{"cred_def_id": "UcBZX1BJu53esRURU7xpM4:3:CL:335390:latest"}], //DMV
+				self_attest_allowed: false
+			},
+			{
+				name: 'social_security_number',
+				restrictions: [{"cred_def_id": "UcBZX1BJu53esRURU7xpM4:3:CL:335475:latest"}], //SSA
+				self_attest_allowed: false
+			},
+			{
+				name: 'college_state',
+				restrictions: [{"cred_def_id": "UcBZX1BJu53esRURU7xpM4:3:CL:335479:latest"}], //University
+				self_attest_allowed: false
+			},
+			{
+				name: 'College_name',
+				restrictions: [{"cred_def_id": "UcBZX1BJu53esRURU7xpM4:3:CL:335479:latest"}], //University
+				self_attest_allowed: false
+			},
+			{
+				name: 'email',
+				restrictions: [{"cred_def_id": "UcBZX1BJu53esRURU7xpM4:3:CL:335479:latest"}], //University
+				self_attest_allowed: false
+			},
+			{
+				name: 'phone',
+				restrictions: [{"cred_def_id": "UcBZX1BJu53esRURU7xpM4:3:CL:335479:latest"}], //University
+				self_attest_allowed: false
+			},
+			{
+				name: 'dod_id',
+				restrictions: [{"cred_def_id": "UcBZX1BJu53esRURU7xpM4:3:CL:335392:latest"}], //DoD
+				self_attest_allowed: false
+			},
+			{
+				name: 'benefits_number',
+				restrictions: [{"cred_def_id": "UcBZX1BJu53esRURU7xpM4:3:CL:335392:latest"}], //DoD
+				self_attest_allowed: false
+			},
+			{
+				name: 'active_duty_indicator',
+				restrictions: [{"cred_def_id": "UcBZX1BJu53esRURU7xpM4:3:CL:335392:latest"}], //DoD
+				self_attest_allowed: false
+			}
+		]
+	}
+
+
+
 		const proofThreadId = uuid4()
 		const requestProof =
 			new Promise(function (resolve, reject) {
 				proofRequestMap.set(proofThreadId, resolve)
 			})
-        
-        
-		await sendVerityRESTMessage('BzCbsNYhMrjHiqZDTUASHg', 'present-proof', '1.0', 'request', proofMessage, proofThreadId)
+
+		if (req.body.military_eligibility) {
+			await sendVerityRESTMessage('BzCbsNYhMrjHiqZDTUASHg', 'present-proof', '1.0', 'request', proofMessageMilitary, proofThreadId)
+		} else if (req.body.active_duty) {
+			await sendVerityRESTMessage('BzCbsNYhMrjHiqZDTUASHg', 'present-proof', '1.0', 'request', proofMessageMilitaryActiveDuty, proofThreadId)
+		} else {
+			await sendVerityRESTMessage('BzCbsNYhMrjHiqZDTUASHg', 'present-proof', '1.0', 'request', proofMessage, proofThreadId)
+		}
+
+
 		const verificationResult = await requestProof
 		res.setHeader('Access-Control-Allow-Origin', '*');
 	    res.send(verificationResult);
