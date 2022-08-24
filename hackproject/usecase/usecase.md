@@ -1,7 +1,7 @@
-# Discover SmartDID Student Loans 
+# DDSL - Discover Digital Student Loan 
 
 #### Table of Contents
-- [Discover SmartDID Student Loans ](#discover-smartdid-student-loans )
+- [DDSL - Discover Digital Student Loan ](#ddsl-discover-digital-student-loans )
   - [Table of Contents](#table-of-contents)
     - [Acknowledgements](#acknowledgements)
     - [Business Challenge](#business-challenge)
