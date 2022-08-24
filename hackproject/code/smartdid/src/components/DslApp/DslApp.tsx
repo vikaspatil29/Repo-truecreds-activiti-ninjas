@@ -3,6 +3,7 @@ import styles from './DslApp.module.css';
 import {Route, Routes, NavLink, useLocation} from 'react-router-dom';
 import Applicant from '../Applicant/Applicant';
 import Cosigner from '../Cosigner/Cosigner';
+import LoanDetails from '../LoanDetails/LoanDetails';
 import Container from '@mui/material/Container';
 import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
@@ -26,6 +27,12 @@ const DslApp: FC<DslAppProps> = () => {
       exact: true,
       element: <Cosigner/>,
       title: 'Student Loans - Co Signer'
+    },
+    {
+      path: '/loan',
+      exact: true,
+      element: <LoanDetails/>,
+      title: 'Student Loan Details'
     }
   ]
 
