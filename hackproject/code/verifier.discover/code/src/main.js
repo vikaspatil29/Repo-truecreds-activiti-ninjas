@@ -10,7 +10,7 @@ require('dotenv').config()
 
 const ANSII_GREEN = '\u001b[32m'
 const ANSII_RESET = '\x1b[0m'
-const PORT = 3000
+const PORT = 3001
 
 //-------------------------------------------------------------------
 // STEP 1 - Set configuration values for Verity application server
