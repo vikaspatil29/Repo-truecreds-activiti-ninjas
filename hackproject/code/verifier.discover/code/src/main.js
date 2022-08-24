@@ -314,9 +314,7 @@ app.post('/verifyCredentials', async (req, res) => {
 					name: 'phone',
 					restrictions: [{"cred_def_id": "UcBZX1BJu53esRURU7xpM4:3:CL:335479:latest"}], //University
 					self_attest_allowed: false
-				},
-                
-
+				}
 			]
 		}
 		const proofThreadId = uuid4()
