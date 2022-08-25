@@ -39,7 +39,7 @@ const LoanAccess: FC<LoanAccessProps> = (props) => {
         </Typography>
       </article>
       <article>
-      <TextField id="standard-basic" label="Enter Loan number" variant="standard" value= {textInput} onChange= {handleTextInputChange}/>
+      <TextField id="standard-basic" label="Enter Co-Signer Key" variant="standard" sx={{width: 300}} value= {textInput} onChange= {handleTextInputChange}/>
       </article>
     <article>
     <FormControlLabel
