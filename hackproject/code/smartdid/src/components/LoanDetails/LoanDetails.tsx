@@ -19,7 +19,7 @@ interface LoanDetailsProps {
 const LoanDetails: FC<LoanDetailsProps> = (props) =>
 {
   const baseDfsLoanApiUrl = 'http://localhost:3003/';
-  const baseVerifyApiUrl = 'http://localhost:3001/';
+Fix  const baseVerifyApiUrl = 'http://localhost:3002/';
 
   const [img, setImg] = useState<string>();
 
@@ -43,28 +43,7 @@ const LoanDetails: FC<LoanDetailsProps> = (props) =>
     const resp = await axios.get(baseVerifyApiUrl+'getVerifyRelationshipDid');
     const verifiedData = await axios.post(baseVerifyApiUrl+'issueCreds',
                     {"relationshipDid": resp.data.relationshipDid,"credentialData":loanDetailsRes.data});
-    //Test
-//     const verifiedData = await axios.post(baseVerifyApiUrl+'issueCreds',
-//                     {"relationshipDid": resp.data.relationshipDid,
-//                     "credentialData":{"first_name":"test",
-//                                         "last_name":"test",
-//                                         "address":"address",
-//                                         "zipcode":"60000",
-//                                          "phone":"30012312222",
-//                                          "email":"test@test.com",
-//                                           "college_name":"test college",
-//                                           "college_state":"IL",
-//                                           "college_course_name":"PHD",
-//                                           "college_couse_type":"PHD",
-//                                           "ssn":"1231233211",
-//                                           "dod_id":"12121",
-//                                           "affiliation":"test",
-//                                           "benefits_number":"2323test",
-//                                           "rank":"high",
-//                                           "date_of_birth":"12-12-2000",
-//                                           "active_duty_indicator":"N",
-//                                            "discover_account_no":"12121212121212",
-//                                            "discover_account_type":"loan"}})
+
     console.log(verifiedData);
     setImg(null);
     setshowSuccess(true);
