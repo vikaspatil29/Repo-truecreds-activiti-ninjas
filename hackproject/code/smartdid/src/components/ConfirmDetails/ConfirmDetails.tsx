@@ -42,7 +42,7 @@ const ConfirmDetails: FC<ConfirmDetailsProps> = (props) => {
             <AlertTitle>Digital Credentials Verified Successfully</AlertTitle>
               <strong>Congratulations!</strong> Your Loan Application Number is <strong>9513476280</strong>
           </Alert>
-          <Alert severity="info" sx={{mt:20}}>
+          <Alert severity="info" sx={{mt:2}}>
             <AlertTitle>Info</AlertTitle>
             Please request the co-signer to use your loan application number and co-signer key <strong>1DERG45PYIHG</strong>
           </Alert>
