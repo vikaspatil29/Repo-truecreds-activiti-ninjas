@@ -122,5 +122,5 @@ The goal is to demonstrate the end-to-end activities necessary to:
 ![issue-student-loan](../../designs/images/uml/4-issue-student-loan-seq.png)
 
 ## Benefits
-1. Consumer: Simple, consistent authentication across all DFS accounts and modalities.
-2. Discover: Shared recognition between DFS Systems and Agents regarding the degree of KYC processing already done.
+1. Consumer: Simple process to apply for a loan and instant verification.
+2. Discover: Quick loan processing and reduce loans to unknown borrowers
