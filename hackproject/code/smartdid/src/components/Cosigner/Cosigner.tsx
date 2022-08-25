@@ -38,6 +38,7 @@ const Cosigner: FC<CosignerProps> = () => {
 
   const setVerifiedData = (dataFromQrCode) => {
     verifiedData = dataFromQrCode;
+    setActiveStep(2);
   }
 
   const renderStepContent = (step: Number) => {
@@ -47,7 +48,7 @@ const Cosigner: FC<CosignerProps> = () => {
       case 1:
         return <QrVerification setVerifiedData={setVerifiedData} isApplicant={false} isMilitary={isMilitary} />;
       case 2:
-        return <Complete handleNext={handleNext} />;
+        return <Complete handleNext={handleNext} isMilitary={isMilitary} />;
       default:
         return <div>Not Found</div>;
     }

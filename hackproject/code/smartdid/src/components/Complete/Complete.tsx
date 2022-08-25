@@ -6,9 +6,12 @@ import TextField from '@mui/material/TextField';
 import { styled } from '@mui/material/styles';
 import SendIcon from '@mui/icons-material/Send';
 import Grid from '@mui/material/Grid';
+import Alert from '@mui/material/Alert/Alert';
+import AlertTitle from '@mui/material/AlertTitle/AlertTitle';
 
 interface CompleteProps {
-  handleNext: any
+  handleNext: any,
+  isMilitary: boolean
 }
 
 const Complete: FC<CompleteProps> = (props) => 
@@ -18,6 +21,8 @@ const Complete: FC<CompleteProps> = (props) =>
     props.handleNext(2);
   }
 
+  console.log(`Military Status in Complete - ${props.isMilitary}`);
+
   return (
   <div className={styles.Complete}>
         <Box
@@ -25,17 +30,23 @@ const Complete: FC<CompleteProps> = (props) =>
           sx={{
             '& .MuiTextField-root': { m: 4, width: '25ch' },
              p: 1,
-             m: 5,
-//              justifyContent: 'center',
-//              border: '1px solid grey',
-             boxShadow: 1,
+             m: 5
           }}
           noValidate
           autoComplete="off" >
-          Congratulations. <b>Loan Application 12345</b> is approved. Now you can download the Digital Student Loan Certificates into your Digital Wallet app.
+          {/* Congratulations. <b>Loan Application 12345</b> is approved. Now you can download the Digital Student Loan Certificates into your Digital Wallet app.
 
-          <Button variant="contained"  endIcon={<SendIcon />} onClick={nextStep}>Complete</Button>
-
+          <Button variant="contained"  endIcon={<SendIcon />} onClick={nextStep}>Complete</Button> */}
+          <Alert severity="success">
+            <AlertTitle>Digital Credentials Verified Successfully</AlertTitle>
+              <strong>Congratulations!</strong> Student Loan application <strong>9513476280</strong> has now been approved.
+          </Alert>
+          {
+            props.isMilitary ? <Alert severity="info" sx={{mt:2}}>
+            <AlertTitle>Info</AlertTitle>
+            You have received an interest discount of <strong>0.25%</strong> as part of military benefit.
+          </Alert> : <span></span>
+          }
           </Box>
 
          <Box
