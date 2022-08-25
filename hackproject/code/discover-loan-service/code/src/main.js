@@ -42,20 +42,23 @@ app.get('/main', async (req, res) => {
 		            last_name: 'Doe',
 		            address: '123 HACK STREET',
 		            zipcode: '11199',
+		            phone: '223331123',
 		            email: 'hackers@trucreds.com',
 		            college_name: 'Discover DTA University',
 		            college_state: 'Illinois',
 		            college_course_type: 'Undergraduate',
-		            social_security_number: '111223331',
+		            college_course_name: 'Bachelor of Science',
+		            ssn: '111223331',
 		            dod_id: '1111',
 		            affiliation: 'Navy',
 		            benefits_number: '123',
 		            rank: '1',
 		            date_of_birth: '10/10/1997',
-		            active_duty_indicator: false,
+		            active_duty_indicator: 'false',
 		            discover_account_no: "1111111",
 		            discover_account_type: 'Student Loan'
 	});
+
 });
 
 app.get('/co-signer', async (req, res) => {
