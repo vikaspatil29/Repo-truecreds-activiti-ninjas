@@ -19,7 +19,7 @@ interface LoanDetailsProps {
 const LoanDetails: FC<LoanDetailsProps> = (props) =>
 {
   const baseDfsLoanApiUrl = 'http://localhost:3003/';
-Fix  const baseVerifyApiUrl = 'http://localhost:3002/';
+  const baseVerifyApiUrl = 'http://localhost:3002/';
 
   const [img, setImg] = useState<string>();
 
