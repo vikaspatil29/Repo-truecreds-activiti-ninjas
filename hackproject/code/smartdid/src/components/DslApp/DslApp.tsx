@@ -38,16 +38,17 @@ const DslApp: FC<DslAppProps> = () => {
 
   return (
     <div className={styles.DslApp}>
+      <Container fixed>
       <Box sx={{ flexGrow: 1 }}>
-      <AppBar position="absolute" color="default" sx={{ alignItems: 'center' }}>
+      <AppBar position="absolute" sx={{ alignItems: 'center', background: '#E55C20' }} >
       <Toolbar>
-        <Typography variant="h6" color="inherit" noWrap>
+        <Typography variant="h5" className={styles.PageHeading} noWrap>
           DISCOVER DIGITAL STUDENT LOAN
         </Typography>
       </Toolbar>
     </AppBar>
     </Box>
-    <Container fixed>
+    
        <Box sx={{ flexGrow: 1 }} className={styles.Content}>
     {/*
        <article className={styles.AppHeader}>

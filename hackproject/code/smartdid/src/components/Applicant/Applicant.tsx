@@ -56,7 +56,21 @@ const Applicant: FC<ApplicantProps> = () => {
 
 return (
   <Box sx={{ width: '100%' }}>
-      <Stepper activeStep={activeStep} alternativeLabel>
+      <Stepper activeStep={activeStep} alternativeLabel sx={{
+    "& .MuiStepConnector-line": {
+      borderTopWidth: "4px",
+    },
+    "& .MuiSvgIcon-root": {
+      fontSize: "2rem",
+    },
+    "& .MuiStepLabel-Label": {
+      fontSize: "1.2rem",
+    },
+    "& .MuiStepLabel-alternativeLabel":
+    {
+      fontSize: "1.2rem",
+    }
+ }}>
         {steps.map((label, index) => {
           const stepProps: { completed?: boolean } = {};
           const labelProps: {} = {};

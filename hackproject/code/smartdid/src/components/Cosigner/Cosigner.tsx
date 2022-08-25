@@ -23,6 +23,11 @@ const Cosigner: FC<CosignerProps> = () => {
     setActiveStep((prevActiveStep) => prevActiveStep + 1);
   };
 
+  const firstStepComplete = (isMil) => {
+    setMilitaryFlag(isMil);
+    setActiveStep(1);
+  };
+
   const handleBack = () => {
     setActiveStep((prevActiveStep) => prevActiveStep - 1);
   };
@@ -38,7 +43,7 @@ const Cosigner: FC<CosignerProps> = () => {
   const renderStepContent = (step: Number) => {
     switch (step) {
       case 0:
-        return <LoanAccess handleNext={handleNext} />;
+        return <LoanAccess firstStepComplete={firstStepComplete} />;
       case 1:
         return <QrVerification setVerifiedData={setVerifiedData} isApplicant={false} isMilitary={isMilitary} />;
       case 2:
@@ -49,7 +54,21 @@ const Cosigner: FC<CosignerProps> = () => {
   };
 return (
   <Box sx={{ width: '100%' }}>
-      <Stepper activeStep={activeStep} alternativeLabel>
+      <Stepper activeStep={activeStep} alternativeLabel sx={{
+    "& .MuiStepConnector-line": {
+      borderTopWidth: "4px",
+    },
+    "& .MuiSvgIcon-root": {
+      fontSize: "2rem",
+    },
+    "& .MuiStepLabel-Label": {
+      fontSize: "1.2rem",
+    },
+    "& .MuiStepLabel-alternativeLabel":
+    {
+      fontSize: "1.2rem",
+    }
+ }}>
         {steps.map((label, index) => {
           const stepProps: { completed?: boolean } = {};
           const labelProps: {} = {};

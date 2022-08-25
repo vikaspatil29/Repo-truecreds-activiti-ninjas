@@ -22,7 +22,7 @@ const ApplicantLanding: FC<ApplicantLandingProps> = (props) => {
   }
 
   return (
-    <Box className={styles.boxContainer}>
+    <Box className={styles.boxContainer} sx={{boxShadow: 1}}>
       <article>
       <FormControlLabel
       control={<Checkbox checked={checked} onChange={handleChange} />}

@@ -5,6 +5,8 @@ import Box from '@mui/material/Box';
 import TextField from '@mui/material/TextField';
 import { styled } from '@mui/material/styles';
 import SendIcon from '@mui/icons-material/Send';
+import Alert from '@mui/material/Alert/Alert';
+import AlertTitle from '@mui/material/AlertTitle/AlertTitle';
 
 interface ConfirmDetailsProps {
   handleNext: any,
@@ -29,15 +31,21 @@ const ConfirmDetails: FC<ConfirmDetailsProps> = (props) => {
              p: 1,
              m: 5,
              justifyContent: 'space-evenly',
-//              border: '1px solid grey',
-             boxShadow: 1,
           }}
           noValidate
           autoComplete="off" >
-          Thank you for your <b>Loan Application 12345</b>.  We need a CoSigner for your application to complete the loan.
+          {/* Thank you for your <b>Loan Application 12345</b>.  We need a CoSigner for your application to complete the loan.
 
           <b>CoSignerKey 4321</b> please share this Key with your CoSigner to resume your application.
-          <Button variant="contained"  color="success" endIcon={<SendIcon />} onClick={nextStep}>Complete</Button>
+          <Button variant="contained"  color="success" endIcon={<SendIcon />} onClick={nextStep}>Complete</Button> */}
+          <Alert severity="success">
+            <AlertTitle>Digital Credentials Verified Successfully</AlertTitle>
+              <strong>Congratulations!</strong> Your Loan Application Number is <strong>9513476280</strong>
+          </Alert>
+          <Alert severity="info" sx={{mt:20}}>
+            <AlertTitle>Info</AlertTitle>
+            Please request the co-signer to use your loan application number and co-signer key <strong>1DERG45PYIHG</strong>
+          </Alert>
           </Box>
 
 

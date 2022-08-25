@@ -2,4 +2,15 @@
 
 .QrImage {
     text-align:center;
+    margin-top: 30px;
+}
+
+.ImageToScan {
+    padding: 20px;
+    border: 1px solid lightgray;
+}
+
+.HelperText {
+    font-size: 12px;
+    font-style: italic;
 }

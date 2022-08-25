@@ -1,5 +1,5 @@
 import Button from '@mui/material/Button/Button';
-import React, { FC } from 'react';
+import React, { FC, useRef, useState } from 'react';
 import styles from './LoanAccess.module.css';
 import Box from '@mui/material/Box/Box';
 import Checkbox from "@mui/material/Checkbox";
@@ -8,15 +8,13 @@ import TextField from '@mui/material/TextField/TextField';
 import Typography from '@mui/material/Typography/Typography';
 
 interface LoanAccessProps {
-  handleNext: any
+  firstStepComplete: any
 }
 
 const LoanAccess: FC<LoanAccessProps> = (props) => {
-  
-let loanId = '';
 
   const nextStep = () => {
-    props.handleNext(1);
+    props.firstStepComplete(checked);
   }
 
   const [checked, setChecked] = React.useState(false);
@@ -25,17 +23,23 @@ let loanId = '';
     setChecked(event.target.checked);
   };
 
+  const [textInput, setTextInput] = useState('');
+
+  const handleTextInputChange = event => {
+    setTextInput(event.target.value);
+};
+
 
 
   return (
-    <Box className={styles.boxContainer}>
+    <Box className={styles.boxContainer} sx={{boxShadow: 1}}>
       <article>
       <Typography variant="h5" noWrap>
           Co-Sign an existing loan application
         </Typography>
       </article>
       <article>
-      <TextField id="standard-basic" label="Enter Loan number" variant="standard" value={loanId} />
+      <TextField id="standard-basic" label="Enter Loan number" variant="standard" value= {textInput} onChange= {handleTextInputChange}/>
       </article>
     <article>
     <FormControlLabel
