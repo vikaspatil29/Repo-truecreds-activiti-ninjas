@@ -41,7 +41,7 @@ This eliminates user providing the required data and Discover performing a verif
 Since the data in the digital wallet is provided by Trusted Issuer, Discover can trust the applicant and reduce the loans provided to unknown borrower.
 
 ### Approach
-SmartDID Student Loan can be implemented using a standards based digital credential as described in the  [Verifiable Credential Trust Triangle](https://trustoverip.github.io/WP0010-toip-foundation-whitepaper/trust/vcred_trust_triangle/). Such a solution must demonstrate all phases of credential definition, credential
+Discover Digital Student Loan(DDSL) can be implemented using a standards based digital credential as described in the  [Verifiable Credential Trust Triangle](https://trustoverip.github.io/WP0010-toip-foundation-whitepaper/trust/vcred_trust_triangle/). Such a solution must demonstrate all phases of credential definition, credential
 generation, credential transfer, wallet storage, and credential verification.
 
 The goal is to demonstrate the end-to-end activities necessary to:
@@ -72,11 +72,11 @@ The goal is to demonstrate the end-to-end activities necessary to:
 |------------------------------------------------------------------------------| --- |--------------------------------------------------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | <img src="./images/john.png" width="40" height="40"> <br> John Doe           | Main Applicant | Applies for Discover Student loan using the credentials in the digital wallet                                                  | Carries a mobile device with a digital wallet containing verifiable credentials from a variety of issuers.                                                          |
 | <img src="./images/mike.png" width="40" height="40"> <br> Mike Doe           | Co-Signer | Co-Signs for a Discover Student loan using the credentials in the digital wallet.                                              | Carries a mobile device with a digital wallet containing verifiable credentials from a variety of issuers.                                                          |
-| <img src="./images/discover_logo.png" width="40" height="40"> <br>Discover   | Verifier | Ensure that all applicants of a SmartDID student loan meet business policy proof of identity, income, university and benefits. | Exploring use cases that would either eliminate the need to outsource student loan verification or reduce time/cost for doing student loan verification internally. |
+| <img src="./images/discover_logo.png" width="40" height="40"> <br>Discover   | Verifier | Ensure that all applicants of a Discover Digital student loan meet business policy proof of identity, income, university and benefits. | Exploring use cases that would either eliminate the need to outsource student loan verification or reduce time/cost for doing student loan verification internally. |
 | <img src="./images/discover_logo.png" width="40" height="40">  <br>Discover  | Issuer | Upon verification of business policy requirements for student loan, issue a student loan credential.                           | Arm qualified consumers with a digital credential for use with SmartDID Student Loan offering.                                                                      |
 | <img src="./images/dmv.png" width="40" height="40"> <br>DMV                  | Issuer | Upon verification of business policy requirements for driving license, issue a driving license credential.                     | Arm qualified consumers with a digital credential for use with SmartDID Student Loan offering.                                             |
 | <img src="./images/ssn.png" width="40" height="40"> <br>SSN Office           | Issuer | Upon verification of business policy requirements for SSN, issue a SSN credential                                              | Arm qualified consumers with a digital credential for use with SmartDID Student Loan offering.                                             |
-| <img src="./images/passport.jpg" width="40" height="40"> <br>Passport Office | Issuer | Upon verification of business policy requirements for passport, issue a passport credential.                                   | Arm qualified consumers with a digital credential for use with SmartDID Student Loan offering.                                             |
+| <img src="./images/passport.jpg" width="40" height="40"> <br>Passport Office | Issuer | Upon verification of business policy requirements for passport, issue a passport credential.                                   | Arm qualified consumers with a digital credential for use with SmartDID  Student Loan offering.                                             |
 | <img src="./images/irs.jpg" width="40" height="40"> <br>IRS                  | Issuer | Upon verification of business policy requirements for tax filings, issue a IRS ID credential.                                  | Arm qualified consumers with a digital credential for use with SmartDID Student Loan offering.                                             |
 | <img src="./images/dod.png" width="40" height="40"> <br>Dept of Defense      | Issuer | Upon verification of business policy requirements for defense duty, issue a defense id credential.                             | Arm qualified consumers with a digital credential for use with SmartDID Student Loan offering.                                             |
 | <img src="./images/univ.png" width="40" height="40"> <br>DTA University      | Issuer | Upon verification of business policy requirements for college enrollment, issue a digital college enrollment credential.       | Arm qualified consumers with a digital credential for use with SmartDID Student Loan offering.                                             |
@@ -115,9 +115,6 @@ The goal is to demonstrate the end-to-end activities necessary to:
 * Discover <img src="./images/discover_logo.png" width="40" height="40"> approves the loan and notify <img src="./images/john.png" width="40" height="40">
 
 
-
-
-
 ## Demo Workflow
 ![ecosystem-setup](../../designs/images/uml/1-ecosystem-setup-seq.png)
 ![student-loan-app](../../designs/images/uml/2-student-loan-app-seq.png)
@@ -125,9 +122,5 @@ The goal is to demonstrate the end-to-end activities necessary to:
 ![issue-student-loan](../../designs/images/uml/4-issue-student-loan-seq.png)
 
 ## Benefits
-1. Consumer: Simple, consistent authentication across all DFS accounts and modalities.
-2. Discover: Shared recognition between DFS Systems and Agents regarding the degree of KYC processing already done.
-## Related Topics
-
-* How can aspects of this use case be used to improve / advance our existing KYC process?
-* Could DFS benefit from the concepts depicted in the [Digital Notary](https://github.com/hyperledger/aries-rfcs/blob/main/features/0116-evidence-exchange/digital_notary_usecase.md) use case outlined by the [evidence protocol for KYC processing](https://github.com/hyperledger/aries-rfcs/tree/main/features/0116-evidence-exchange)?
+1. Consumer: Simple process to apply for a loan and instant verification.
+2. Discover: Quick loan processing and reduce loans to unknown borrowers
