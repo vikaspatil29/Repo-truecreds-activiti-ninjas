@@ -26,7 +26,7 @@ const ApplicantLanding: FC<ApplicantLandingProps> = (props) => {
       <article>
       <FormControlLabel
       control={<Checkbox checked={checked} onChange={handleChange} />}
-      label="Military / Other Benefits eligibility" />
+        label="Are you eligible for military service benefits?" />
       </article>
       <article>
       <Button variant="contained" onClick={nextStep}>START HERE</Button>
