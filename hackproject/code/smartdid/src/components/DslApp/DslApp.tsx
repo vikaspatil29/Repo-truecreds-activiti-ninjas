@@ -10,7 +10,6 @@ import Box from '@mui/material/Box';
 import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
 
-
 interface DslAppProps {}
 
 const DslApp: FC<DslAppProps> = () => {
@@ -20,13 +19,13 @@ const DslApp: FC<DslAppProps> = () => {
       path: '/',
       exact: true,
       element: <Applicant/>,
-      title: 'Student Loans - Applicant'
+      title: 'Student Loans - Student'
     },
     {
       path: '/cosigner',
       exact: true,
       element: <Cosigner/>,
-      title: 'Student Loans - Co Signer'
+      title: 'Student Loans - CoSigner'
     },
     {
       path: '/loan',
@@ -40,21 +39,23 @@ const DslApp: FC<DslAppProps> = () => {
   return (
     <div className={styles.DslApp}>
       <Box sx={{ flexGrow: 1 }}>
-      <AppBar position="absolute" color="default">
+      <AppBar position="absolute" color="default" sx={{ alignItems: 'center' }}>
       <Toolbar>
         <Typography variant="h6" color="inherit" noWrap>
-          DISCOVER STUDENT LOANS
+          DISCOVER DIGITAL STUDENT LOAN
         </Typography>
       </Toolbar>
     </AppBar>
     </Box>
     <Container fixed>
-    <Box sx={{ flexGrow: 1 }} className={styles.Content}>
-    <article className={styles.AppHeader}>
-      <Typography variant="h4" noWrap>
+       <Box sx={{ flexGrow: 1 }} className={styles.Content}>
+    {/*
+       <article className={styles.AppHeader}>
+       <Typography variant="h4" noWrap>
           Discover SmartDID Student Loan
         </Typography>
       </article>
+    */}
       <Routes>
         {
           routes.map((route, index) => (

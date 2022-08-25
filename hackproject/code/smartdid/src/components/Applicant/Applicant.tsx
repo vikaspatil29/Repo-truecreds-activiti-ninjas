@@ -15,7 +15,7 @@ interface ApplicantProps {}
 const Applicant: FC<ApplicantProps> = () => {
   const [verifiedData, setVerData] = useState<any>();
   const [isMilitary, setMilitaryFlag] = useState<boolean>(false);
-  const steps = ['Apply', 'Verify', 'Submit'];
+  const steps = ['Start Your Student Loan Application', 'Verify Your Digital Credentials', 'Find Your Loan Status'];
 
   const [activeStep, setActiveStep] = React.useState(0);
 
@@ -56,7 +56,7 @@ const Applicant: FC<ApplicantProps> = () => {
 
 return (
   <Box sx={{ width: '100%' }}>
-      <Stepper activeStep={activeStep}>
+      <Stepper activeStep={activeStep} alternativeLabel>
         {steps.map((label, index) => {
           const stepProps: { completed?: boolean } = {};
           const labelProps: {} = {};

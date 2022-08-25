@@ -14,7 +14,7 @@ interface CosignerProps {}
 
 const Cosigner: FC<CosignerProps> = () => {
   
-  const steps = ['LoanAccess', 'Verify', 'Complete'];
+  const steps = ['CoSign a Student Loan Application ', 'Verify Your Digital Credentials', 'Find the Student Loan Status'];
   const [isMilitary, setMilitaryFlag] = useState<boolean>(false);
   let verifiedData:any;
   const [activeStep, setActiveStep] = React.useState(0);
@@ -49,7 +49,7 @@ const Cosigner: FC<CosignerProps> = () => {
   };
 return (
   <Box sx={{ width: '100%' }}>
-      <Stepper activeStep={activeStep}>
+      <Stepper activeStep={activeStep} alternativeLabel>
         {steps.map((label, index) => {
           const stepProps: { completed?: boolean } = {};
           const labelProps: {} = {};
